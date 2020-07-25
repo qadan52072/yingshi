@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<head>
+<meta charset="utf-8"/>
+<meta content="all" name="robots"/>
+<meta name="robots" content="index,follow"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+<meta content="telephone=no" name="format-detection">
+<meta http-equiv="cache-control" content="no-cache, must-revalidate, max-age=0">
+<title>正在播放 [vod:name] [vod:playname]</title>
+<meta name="Keywords" content="[vod:name][vod:playname]免费在线观看,[vod:name]剧情介绍,[vod:name]数据海报" />
+<meta name="description" content="[vod:name][vod:playname]免费在线观看,[vod:name]剧情介绍,[vod:name]数据海报" />
+{maccms:include}
+</head>
+<body>
+<body class="ad-box">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 navbar-header">
+			<a class="navbar-brand" href="/">
+			<div class="logo" height="90">
+				<img class="img-responsive" src="{maccms:path_tpl}images/logo.png" width="240"/>
+			</div>
+			<div class="slogan">
+				最近網址：{maccms:url}
+			</div>
+			</a>
+			<hr>
+		</div>
+		<div class="col-md-9 top-nav">
+			<a href="/" class="btn btn-danger btn-lg ">首页</a>
+	                   		{maccms:menu type=23,24,25,26,27,28,29,30,31,32,33,34,35}
+							<a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	                        {/maccms:menu}
+		</div>
+	</div>
+	<div align="center">
+		<div class="ads">
+			<!--AD-->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="well">
+				<form raction="{maccms:link_search_vod}" method="post" autocomplete="off">
+					<div class="input-group">
+						<input type="text" class="form-control" id="wd" name="wd" placeholder="万部影片任你搜索" value="">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="submit">搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="well">
+				<h4>本周排行榜</h4>
+				<ul>
+					{maccms:vod num=18 type=all by=dayhits order=desc}
+					<li><a href="[vod:playlink]" title="[vod:name]">[vod:name]</a></li>
+					{/maccms:vod}
+				</div>
+				<div class="well">
+					<h4>本月排行榜</h4>
+					<ul>
+						{maccms:vod num=18 type=all by=monthhits order=desc}
+						<li><a href="[vod:playlink]" title="[vod:name]">[vod:name]</a></li>
+					{/maccms:vod}
+					</ul>
+				</div>
+			</div>
+			<!-- begin col-lg-8-->
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-md-12 class-feed-btn2">
+						<ul>
+	                   		{maccms:menu type=1,2,3,4}
+							<a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	                        {/maccms:menu}
+						</ul>
+					</div>
+					<!-- Page Content UP AD-->
+					<div class="row">
+						<div class="col-md-12 center">
+							<div id="a1">
+							</div>
+							<div class="col-lg-12">
+								<h1 class="page-header">[vod:name]</h1>
+							</div>
+						</div>
+						<div class="col-md-9 center"id="cms_player">
+							[vod:playerinfo][vod:player]
+						</div>
+						<div class="col-md-3">
+						 {maccms:vod type=current num=3 order=desc by=time}
+							<a href="[vod:playlink]" title="[vod:name]"><img class="img-responsive" src="[vod:pic]" alt="[vod:name]" width="213" height="143" style="margin-bottom:10px;"></a>
+					     {/maccms:vod}
+						</div>
+						<div class="col-md-9 center">
+							<ul>
+								<div class="inputA">
+                                影片采集地址
+									<br/><input type="text" onclick="this.select()" class="form-control" value="[vod:playurlpath]   "/>
+									<br>
+									<li>來源：{maccms:url} </li>
+									<li>标签： - [vod:typename] </li>
+								</ul>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-lg-12">
+								<h3 class="page-header2">更多精彩影片</h3>
+							</div>
+							
+					     {maccms:vod type=current num=8 order=desc by=hits}
+						   <div class="col-sm-3 col-xs-6">
+							<a href="[vod:playlink]" title="[vod:name]"><img class="img-responsive" src="[vod:pic]" alt="[vod:name]" width="213" height="143" style="margin-bottom:10px;"></a>
+						   </div>
+					     {/maccms:vod}
+							
+
+						</div>
+					</div>
+				</div>
+			</div>
+			 {maccms:foot}
+			</body>
+			</html>

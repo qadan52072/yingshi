@@ -1,0 +1,169 @@
+<?php  
+$pagesize = 8; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>
+		<?php echo $web_title;?>
+	</title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/index.css" />
+</head>
+
+<body>
+
+
+	﻿
+	<?php  include('./template/'.$web_moban.'/header.html');?>
+	<div id="warp">
+
+		<!--頭部結束-->
+		<div class="top_js">
+			<div style="PADDING: 5px;FLOAT: left;FONT-SIZE: 14px;">
+				<font color="red">重要通知：</font>
+				<?php echo $dizhigongao;?>
+			</div>
+		</div>
+		<div id="main">
+			<div class="box">
+				<div id="right">
+					<div class="list">
+						<div class="top_js">
+							<div style="PADDING: 5px;FLOAT: left;FONT-SIZE: 14px;">
+								<font color="red">
+									<?php JCCMS_type('5'); ?>
+							</div>
+						</div>
+
+						<div class="cont" style="BORDER-TOP: #aac6eb 1px solid;">
+							<div class="lit">
+								<ul class="right">
+									<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+									<li>
+										<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html"><img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" /></a>
+										<dd> <a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+												<font color="" title="">
+													<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+												</font>
+											</a></dd>
+										<dd>
+											<p>Date：<font color="red">时间：
+													<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?>
+												</font>
+											</p>
+										</dd>
+									</li>
+									<?php		 }?>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="top_js">
+							<div style="PADDING: 5px;FLOAT: left;FONT-SIZE: 14px;">
+								<font color="red">
+									<?php JCCMS_type('10'); ?>
+							</div>
+						</div>
+
+						<div class="cont" style="BORDER-TOP: #aac6eb 1px solid;">
+							<div class="lit">
+								<ul class="right">
+									<?php $JCCMS_SQL=JCCMS_chuli('10');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+									<li>
+										<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html"><img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" /></a>
+										<dd> <a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+												<font color="" title="">
+													<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+												</font>
+											</a></dd>
+										<dd>
+											<p>Date：<font color="red">时间：
+													<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?>
+												</font>
+											</p>
+										</dd>
+									</li>
+									<?php		 }?>
+
+								</ul>
+							</div>
+						</div>
+
+						<div class="top_js">
+							<div style="PADDING: 5px;FLOAT: left;FONT-SIZE: 14px;">
+								<font color="red">直播频道
+							</div>
+						</div>
+
+						<div class="cont" style="BORDER-TOP: #aac6eb 1px solid;">
+							<div class="lit">
+								<ul class="right">
+									<?php
+			 $json_string = file_get_contents($zhibourl);
+			 $data = json_decode($json_string, true);$datas = $data['fileinfo'];$pageresult = $data['pageresult'];$page = $data['page'];$datass =NULL;
+			for ($x=0; $x<=7; $x++) {
+			  $val=$datas[$x];$address=$val['m3u8'];$img=$val['pic'];$title=$val['name'];
+
+			?>
+									<li>
+										<a href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html"><img src="<?php echo $img;?>" /></a>
+										<dd> <a href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html">
+												<font color="" title="">
+													<?php echo $title ?>
+												</font>
+											</a></dd>
+										<dd>
+											<p>Date：<font color="red">时时直播</font>
+											</p>
+										</dd>
+									</li>
+									<?php		 }?>
+
+
+
+
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="top_js">
+							<div style="PADDING: 5px;FLOAT: left;FONT-SIZE: 14px;">
+								
+									友情链接
+							</div>
+						</div>
+
+						<div class="cont" style="BORDER-TOP: #aac6eb 1px solid;">
+							<div class="lit">
+								<?php echo  Jccms_json_connection('<a class="text-sub-title mx-2 text-small" href="链接" target="_blank" style="margin:0 10px;">标题</a>',JCCMS_ROOT);?>
+							</div>
+						</div>
+
+
+						
+
+
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+		<?php  include('./template/'.$web_moban.'/footer.html');?>
+
+</body>
+
+</html>

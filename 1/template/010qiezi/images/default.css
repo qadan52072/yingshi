@@ -1,0 +1,51 @@
+@charset "utf-8";
+div#queryContainer{position:absolute;z-index: 30;}
+.queryTitle{padding: 5px 5px 5px 5px;background-color: #3366cc;background-color: #84ABE2;color: white;border-top: 2px solid #84ABE2;border-left: 2px solid #84ABE2;border-right: 2px solid #84ABE2;}
+.queryTable{border: 2px solid #84ABE2;background-color: #EBEBEB;border-collapse: collapse;width: 100%;height: 100%;}
+.queryTable2{border: 2px solid #84ABE2;background-color: #EBEBEB;border-collapse: collapse;width: 100%;}
+.queryTDLable{background-color: #FDF5E6;padding: 2px 2px 2px 2px;height:25px;text-align:right;text-valign:bottom;}
+.queryTDInput{background-color: #FFFFFF;padding: 2px 2px 2px 2px;height:25px;text-align:left;text-valign:bottom;}
+.complex{padding: 10px;}
+
+
+/* 文字滚动 */
+.msg{
+    position: relative;
+    background: #333333;
+    height: 50px;
+    border-radius: 51px;
+    margin-bottom: 10px;
+}
+.msg .ico-msg{
+    height: 50px;
+    line-height: 50px;
+    margin-left: 34px;
+    width: 3%;
+    display: inline-block;
+    position: relative;
+}
+.msg .ico-msg img{
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.msg .marquee{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 94%;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 0;
+    color: #ccc;
+    font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.msg .marquee p{
+    display: inline-block;
+    color: silver;
+}
+

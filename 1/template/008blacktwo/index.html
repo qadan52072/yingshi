@@ -1,0 +1,137 @@
+<?php  
+$pagesize = 8; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+
+<!doctype html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>
+		<?php echo $web_title;?>
+	</title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+	<meta name="googlebot" content="noindex,nofollow" />
+	<meta name="viewport" content="width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable = 0" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/index.css" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/style.css" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/fonts/iconfont.css" />
+</head>
+
+<body>
+	<?php  include('./template/'.$web_moban.'/header.html');?>
+	<main id="main">
+		<div class="container-fluid mb-3 p-0">
+			<div class="row">
+				<div class="advInfoElem col-15">
+					<a class="display d-block"><img class="w-100" src="<?php echo '/template/'.$web_moban;?>/images/zb1.jpg" /></a>
+					<a class="title text-sub-title">高速稳定、实时直播</a>
+				</div>
+				<div class="advInfoElem col-15">
+					<a class="display d-block"><img class="w-100" src="<?php echo '/template/'.$web_moban;?>/images/2.jpg" /></a>
+					<a class="title text-sub-title">成人小说、免费阅读</a>
+				</div>
+				<div class="advInfoElem col-15">
+					<a class="display d-block"><img class="w-100" src="<?php echo '/template/'.$web_moban;?>/images/3.jpg" /></a>
+					<a class="title text-sub-title">情色图片、免费浏览</a>
+				</div>
+				<div class="advInfoElem col-15">
+					<a class="display d-block"><img class="w-100" src="<?php echo '/template/'.$web_moban;?>/images/zb2.jpg" /></a>
+					<a class="title text-sub-title">五大成人、内容分享</a>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid px-0">
+			<div class="row my-2">
+				<h5 class="container-title col-60">
+					<?php JCCMS_type('5'); ?>
+				</h5>
+			</div>
+			<div class="row">
+				<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+				<div class="col-15">
+					<div class="video-elem">
+						<a class="display d-block" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<img class="w-100" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" />
+							<small class="layer">
+								<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></small>
+						</a>
+						<a class="title text-sub-title mt-2 mb-3" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+					</div>
+				</div>
+				<?php		 }?>
+			</div>
+		</div>
+		<div class="container-fluid px-0">
+			<div class="row my-2">
+				<h5 class="container-title col-60">
+					<?php JCCMS_type('10'); ?>
+				</h5>
+			</div>
+			<div class="row">
+				<?php $JCCMS_SQL=JCCMS_chuli('10');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+				<div class="col-15">
+					<div class="video-elem">
+						<a class="display d-block" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<img class="w-100" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" />
+							<small class="layer">
+								<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></small>
+						</a>
+						<a class="title text-sub-title mt-2 mb-3" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+					</div>
+				</div>
+				<?php		 }?>
+			</div>
+		</div>
+		<div class="container-fluid px-0">
+			<div class="row my-2">
+				<h5 class="container-title col-60">直播频道</h5>
+			</div>
+			<div class="row">
+				<?php
+			 $json_string = file_get_contents($zhibourl);
+			 $data = json_decode($json_string, true);$datas = $data['fileinfo'];$pageresult = $data['pageresult'];$page = $data['page'];$datass =NULL;
+			for ($x=0; $x<=7; $x++) {
+			  $val=$datas[$x];$address=$val['m3u8'];$img=$val['pic'];$title=$val['name'];
+
+			?>
+				<div class="col-15">
+					<div class="video-elem">
+						<a class="display d-block" href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html">
+							<img class="w-100" src="<?php echo $img;?>" />
+							<small class="layer">时时直播</small>
+						</a>
+						<a class="title text-sub-title mt-2 mb-3" href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html">
+							<?php echo $title ?></a>
+					</div>
+				</div>
+				<?php		 }?>
+			</div>
+
+		</div>
+
+		<hr />
+		<div class="container-fluid px-0">
+			<div class="row my-2">
+				<h5 class="container-title col-60">友情链接</h5>
+			</div>
+			<div class="row">
+				<div class="col-60">
+					<?php echo  Jccms_json_connection('<a class="text-sub-title mx-2 text-small" href="链接" target="_blank">标题</a>',JCCMS_ROOT);?>
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<?php  include('./template/'.$web_moban.'/footer.html');?>
+</body>
+
+</html>

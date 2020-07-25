@@ -1,0 +1,118 @@
+<?php  
+$pagesize = 12; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<!DOCTYPE html>
+<html>
+	<head>
+	<title><?php echo $web_title;?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/style.css" type="text/css">
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/home.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+            <?php  include('./template/'.$web_moban.'/header.html');?>
+				<div class="stui-pannel clearfix">
+					<div class="stui-pannel__head clearfix">
+						<a class="text-muted pull-right" >更多 &gt;</a>
+						<span class="hidden-sm hidden-xs pull-right"></span>
+						<h3 class="title">最新<?php JCCMS_type('5'); ?></h3>
+					</div>
+					<ul class="stui-vodlist clearfix">
+						<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+						<li class="stui-vodlist__item">
+							<a class="stui-vodlist__thumb lazyload" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+								<span class="play hidden-xs"></span>
+								<span class="pic-text text-right">已完结</span>
+							</a>
+							<h4 class="stui-vodlist__title">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+									<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+								</a>
+							</h4>
+						</li>
+						<?php		 }?>	
+					</ul>
+				</div>
+								<div class="stui-pannel clearfix">
+					<div class="stui-pannel__head clearfix">
+						<a class="text-muted pull-right" >更多 &gt;</a>
+						<span class="hidden-sm hidden-xs pull-right"></span>
+						<h3 class="title">最新<?php JCCMS_type('8'); ?></h3>
+					</div>
+					<ul class="stui-vodlist clearfix">
+						<?php $JCCMS_SQL=JCCMS_chuli('8');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+						<li class="stui-vodlist__item">
+							<a class="stui-vodlist__thumb lazyload" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+								<span class="play hidden-xs"></span>
+								<span class="pic-text text-right">已完结</span>
+							</a>
+							<h4 class="stui-vodlist__title">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+									<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+								</a>
+							</h4>
+						</li>
+						<?php		 }?>	
+					</ul>
+				</div>
+												<div class="stui-pannel clearfix">
+					<div class="stui-pannel__head clearfix">
+						<a class="text-muted pull-right">更多 &gt;</a>
+						<span class="hidden-sm hidden-xs pull-right"></span>
+						<h3 class="title">最新<?php JCCMS_type('7'); ?></h3>
+					</div>
+					<ul class="stui-vodlist clearfix">
+						<?php $JCCMS_SQL=JCCMS_chuli('7');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+						<li class="stui-vodlist__item">
+							<a class="stui-vodlist__thumb lazyload" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+								<span class="play hidden-xs"></span>
+								<span class="pic-text text-right">已完结</span>
+							</a>
+							<h4 class="stui-vodlist__title">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+									<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+								</a>
+							</h4>
+						</li>
+						<?php		 }?>	
+					</ul>
+				</div>
+
+				<div class="stui-pannel clearfix">
+					<div class="stui-pannel__head clearfix">
+						<h3 class="title">友情链接</h3>
+					</div>
+					<ul class="stui-link__text col-pd clearfix">
+					<?php echo  Jccms_json_connection('<li><a class="text-muted" href="链接" title="{9CCMS-IeUrl:Name}" target="_blank">标题</a></li>',JCCMS_ROOT);?>
+
+					</ul>
+				</div>
+				<div class="stui-pannel clearfix">
+					<div class="col-pd"></div>
+				</div>
+			</div>
+		</div>
+		<?php  include('./template/'.$web_moban.'/footer.html');?>
+		<script src="<?php echo '/template/'.$web_moban;?>/js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".lazyload").lazyload({
+				effect: "fadeIn",
+				threshold: 200,
+				failurelimit: 15,
+				skip_invisible: false
+			})
+		</script>
+
+	</body>
+</html>

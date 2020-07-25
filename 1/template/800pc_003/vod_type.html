@@ -1,0 +1,78 @@
+<?php  
+$pagesize = 24; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<html>
+    <head>
+        	<title><?php echo $C_T_2_name;?>-<?php echo $web_title;?></title>
+       <?php  include('./template/'.$web_moban.'/header.html');?>
+    
+                            <div data-v-5144f769="" class="el-col el-col-19" style="padding-left: 15px; padding-right: 15px;">
+                                <div data-v-5144f769="">
+                                    <div data-v-5144f769="" class="title">在线视频 - <?php echo $C_T_2_name;?> - 列表页</div>
+                                    <div data-v-5144f769="">
+                                        <div data-v-5144f769="" class="video-list">
+                                        
+                                           <?php for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++) {?>
+                                          
+                                            <div data-v-5144f769="" class="video-detail">
+                                                 <a style="color:FFF;" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+                                                <div data-v-5144f769="" class="img-info">
+                                                    <img data-v-5144f769="" ondragstart="return false" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" class="lazy">
+                                                    <div data-v-5144f769="" class="video-info">
+                                                        <div data-v-5144f769=""> </div>
+                                                        <div data-v-5144f769="">
+                                                            <a data-v-5144f769=""></a><?php  echo rand(5, 10000); ?></div>
+                                                    </div>
+                                                </div>
+                                                <div data-v-5144f769="" class="is-vip" style="display: none;">VIP</div>
+                                                <div data-v-5144f769="" class="show-title"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div>  </a></div>
+                                              
+                                          <?php	 } ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div data-v-5144f769="" class="page-container pull-right pager-margin-top">
+                                    <div class="el-row"><?php if($JCCMS_page >=0){?>
+                                        <a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-0.html" type="button" class="el-button el-button--default el-button--medium">
+                                            <!---->
+                                            <!---->
+                                            <span>首页</span></a><?php } ?>	
+									<?php if($JCCMS_page >=1){?>
+<a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_prev);?>.html" type="button" class="el-button el-button--default el-button--medium"><span>上一页</span></a>
+
+<?php } ?>	
+<div class="pageinput el-input el-input--medium"><!----><a type="button" class="el-button el-button--default el-button--medium"><span><?php JCCMS_page($JCCMS_page);?></span></a><!----><!----><!----></div>
+<?php
+if($JCCMS_page < $JCCMS_pagecount){
+?>
+<a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_next);?>.html" type="button" class="el-button el-button--default el-button--medium"><span>下一页</span></a>
+
+<?php
+}
+?>		
+<a href="#" type="button" class="el-button el-button--default el-button--medium">共<?php JCCMS_page($JCCMS_pagecount);?><span>页</span></a>
+                                    </div>
+									
+									
+
+
+
+
+
+			
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!----></div>
+             <?php  include('./template/'.$web_moban.'/footer.html');?>
+        </div>
+   
+    </body>
+
+</html>

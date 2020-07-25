@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>正在直播中.... <?php echo $web_title;?></title>
+	<meta name="keywords" content="<?php echo $web_title;?>" />
+	<meta name="description" content="<?php echo $web_title;?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo '/template/'.$web_moban;?>/css/common.min.css" />
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/font/iconfont.css" />
+    <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/js/uikit.min.js"></script>
+</head>
+<body>
+<?php  include('./template/'.$web_moban.'/header.html');?>
+
+           <!-- 视频列表 -->
+            <div class="right-container">
+                <!-- 视频分类 -->
+                <div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix uk-margin-bottom">
+                        <!-- 面包屑 -->
+                        <div class="bred uk-float-left">
+                            <p>
+                                <i class="icon iconfont icon-home"></i>
+                                <span>您当前位置：</span>
+                                <a href="#"><?php echo $web_title;?></a>
+                                <i class="icon iconfont icon-right"></i>
+                                <a href="#" class="">直播频道</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <span class="right">直播中</span>
+                            </p>
+                            
+                        </div>
+                        <p class="title-tips uk-float-right">
+                            公告： <?php echo $dizhigongao;?>
+                        </p>
+                    </div>
+                    <div class="video-content">
+                        <!-- 视频标题 -->
+
+
+                        <!-- 播放器 -->
+                        <div class="player uk-clearfix">
+                            <div class="player-l uk-float-left">
+                                <div class="player-box">
+									 <div  class="prism-player" id="J_prismPlayer" style="height:400px"></div>
+
+											 <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.7.2/skins/default/aliplayer-min.css" />
+										 <script charset="utf-8" type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js"></script>
+									<?php  $GG=$PT; $PT = file_get_contents(base64_decode($PT));?>        
+											<script>
+												var player = new Aliplayer({
+												id: 'J_prismPlayer',
+												width: '100%',
+												autoplay: true,
+												//支持播放地址播放,此播放优先级最高
+												source : '<?php echo$PT?>',
+												liveShiftSource:'<?php echo $PT?>',
+
+											
+
+
+												},function(player){
+													console.log('播放器创建好了。')
+											   });
+											   
+											</script>							
+								</div>
+                                <!-- 播放器下方功能键 -->
+                                <div class="play-func uk-clearfix uk-margin-small-top">MTBB值:<?php echo $GG;?> </div>
+                            </div>
+
+                            <!-- 播放器右侧 推荐列表--> 
+                         <div class="player-r uk-float-right uk-grid uk-grid-small">
+                                <div class="uk-width-1-1 uk-margin-small-bottom ">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/zb.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-margin-small-bottom">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/zb1.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-margin-small-bottom">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/zb2.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="line">
+                            <hr>
+                        </div>
+
+
+                <div class="line">
+                    <hr>
+                </div>
+
+
+            </div>
+        </div>
+
+</div>
+    </div>
+</div>
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+ 
+</body>
+</html>

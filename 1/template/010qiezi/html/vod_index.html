@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="">
+<title>{maccms:name}</title>
+<meta name="keywords" content="{maccms:keywords}" />
+<meta name="description" content="{maccms:description}" />
+{maccms:include}
+</head>
+<body class="ad-box">
+{maccms:head}
+    {maccms:matrix type=23,24,25,26,27}
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">[matrix:name]
+                    <small>movie</small></h1>
+		</div>
+	</div>
+	<hr>
+	<!-- Projects Row -->
+	<div class="row">
+	 {maccms:vod type=[matrix:id] num=8 order=desc by=time}
+		<div class="col-md-3 portfolio-item new-video">
+			<div class="new-video-icon">
+			</div>
+			<a href="[vod:playlink]" title="[vod:name]" target="_blank"><img class="img-responsive" src="[vod:pic]" width="280" height="160"/></a>
+			<div class="v-title">
+				<div class="uptime">
+					[vod:name]
+				</div>
+				  上架时间：[vod:addtime]<br>
+				<a href="[vod:playlink]" title="[vod:name]" target="_blank">[vod:name]</a>
+			</div>
+		</div>
+     {/maccms:vod}
+	</div>	
+	{/maccms:matrix}
+	<div class="row">
+		<div class="col-lg-12">
+			备用网址
+			<hr>
+			<div class="row">{maccms:link type=font}
+				<div class="col-md-2 portfolio-item">
+					<a href="[link:link]" target="_blank">[link:name]</a>
+				</div>
+				{/maccms:link}
+			</div>
+			{maccms:foot}
+		</body>
+		</html>

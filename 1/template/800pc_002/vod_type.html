@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<?php  
+$pagesize = 24; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<html>
+	<head>
+		<title><?php echo $web_title;?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/style.css" type="text/css">
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/home.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<?php  include('./template/'.$web_moban.'/header.html');?>
+				<div class="stui-pannel clearfix">
+					<ul class="stui-screen__list type-slide clearfix">
+						<li>
+							<span class="text-muted">视频分类：<?php echo $C_T_2_name;?></span>
+						</li>
+						
+					</ul>
+					<ul class="stui-vodlist clearfix">
+						<?php for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){?>
+						<li class="stui-vodlist__item">
+							<a class="stui-vodlist__thumb lazyload" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+								<span class="play hidden-xs"></span>
+								<span class="pic-text text-right">已完结</span>
+							</a>
+							<h4 class="stui-vodlist__title">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+									<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+								</a>
+							</h4>
+						</li>
+						<?php	 }?>	
+					</ul>
+					<ul class="stui-page text-center cleafix">
+<?php
+if($JCCMS_page < $JCCMS_pagecount){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-0.html"><i class="icon iconfont icon-arrowright"></i>首页</a></li>
+
+<?php
+}
+
+
+
+?>					
+						
+						<?php
+ 
+if($JCCMS_page >=1){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_prev);?>.html"><i class="icon iconfont icon-arrowleft"></i>上一页</a></li>
+<?php
+}
+?>
+
+
+<?php
+if($JCCMS_page < $JCCMS_pagecount-10){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo  $JCCMS_page+1;?>.html"><?php echo  $JCCMS_page+1;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+2;?>.html"><?php echo   $JCCMS_page+2;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+3;?>.html"><?php echo   $JCCMS_page+3;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+4;?>.html"><?php echo   $JCCMS_page+4;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+5;?>.html"><?php echo   $JCCMS_page+5;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+6;?>.html"><?php echo   $JCCMS_page+6;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+7;?>.html"><?php echo   $JCCMS_page+7;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+8;?>.html"><?php echo   $JCCMS_page+8;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+9;?>.html"><?php echo   $JCCMS_page+9;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+10;?>.html"><?php echo   $JCCMS_page+10;?></a></li>
+<?php
+
+}
+
+
+?>
+
+
+
+
+
+
+<?php
+if($JCCMS_page < $JCCMS_pagecount){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_next);?>.html"><i class="icon iconfont icon-arrowright"></i>下一页</a></li>
+
+<?php
+}
+
+
+
+?>					
+
+						
+						
+					</ul>
+				</div>
+
+				<div class="stui-pannel clearfix">
+					<div class="col-pd"></div>
+				</div>
+			</div>
+		</div>
+		<?php  include('./template/'.$web_moban.'/footer.html');?>
+		<script src="<?php echo '/template/'.$web_moban;?>/js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".lazyload").lazyload({
+				effect: "fadeIn",
+				threshold: 200,
+				failurelimit: 15,
+				skip_invisible: false
+			})
+		</script>
+
+	</body>
+</html>

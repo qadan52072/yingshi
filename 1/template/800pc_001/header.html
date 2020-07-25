@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><?php echo $web_title;?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+    <meta name="robots" content="index, follow"/>
+    <meta name="revisit-after" content="1 days"/>
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/jquery.min.js"></script>
+    <link href="<?php echo '/template/'.$web_moban;?>/static/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo '/template/'.$web_moban;?>/static/css/mdui.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo '/template/'.$web_moban;?>/static/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo '/template/'.$web_moban;?>/static/css/common.css" rel="stylesheet" type="text/css">
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/mdui.min.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/jquery.pin.min.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/com.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/videos.js"></script>
+    <!--[if lt IE 9]>
+    <script src="/static/1769/js/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body class="mdui-theme-primary-pink mdui-theme-accent-pink">
+<script>
+    var global_ad_status = 1;
+</script>
+<!--[if lte IE 9]>
+<div class="mdui-text-center mdui-p-a-2 mdui-typo lteie9">您的浏览器版本太低了，为了能更好的体验本站，请升级您的浏览器。点击链接下载最新版本的浏览器：<a
+        href="http://ie.microsoft.com" target="_blank">IE</a>、<a href="http://www.google.cn/chrome/" target="_blank">chrome(谷歌浏览器)</a>、<a
+        href="http://www.firefox.com.cn/" target="_blank">Firefox(火狐浏览器)</a>，推荐使用谷歌浏览器
+</div>
+<![endif]-->
+<!-- 全屏广告开始 -->
+<div class="main-ad-l"><a href="" target="_blank" id="bg_ad1"></a></div>
+<div class="main-ad-r"><a href="" target="_blank" id="bg_ad2"></a></div>
+<div class="topad"><a href="" target="_blank" id="bg_ad3"></a></div>
+<script>
+    var daili_domain = '';
+    var bgs = [{
+        "img": "<?php echo '/template/'.$web_moban;?>/static/images/167qp.jpg",
+        "link": "http:\/\/www.800cms.net?2"},{
+        "img": "<?php echo '/template/'.$web_moban;?>/static/images/hfbg1.jpg",
+        "link": "http:\/\/www.800cms.net?1"},{"img":"<?php echo '/template/'.$web_moban;?>/static/images/1.jpg","link":"http:\/\/www.800cms.net?3","status":"1"
+    }];
+    var num = Math.floor(Math.random() * bgs.length);
+
+    if (bgs[num]['img'].indexOf("http") > -1) {
+        var url = bgs[num]['img'];
+    } else {
+        var url = daili_domain + bgs[num]['img'];
+    }
+    document.body.style.backgroundImage = "url(" + url + ")";
+    document.getElementById("bg_ad1").href = bgs[num]['link'];
+    document.getElementById("bg_ad2").href = bgs[num]['link'];
+    document.getElementById("bg_ad3").href = bgs[num]['link'];
+</script>
+<!-- 全屏广告结束 -->
+<input type="hidden" mdui-dialog="{target: '#dialog-msg'}" id="msg_bt" value="msg">
+<input type="hidden" mdui-dialog="{target: '#dialog-msg-vip'}" id="msg_bt_vip" value="msg">
+<input type="hidden" mdui-dialog="{target: '#dialog-login'}" id="login_dialog_bt" value="login">
+<div class="mdui-color-theme mdui-container mdui-p-a-0 main-pin main">
+    <!-- 左侧通栏开始 -->
+<div class="mdui-float-left main-left-box">
+    <div class="main-left">
+        <div class="logo"><a href="/"></a></div>
+        <div class="mdui-typo">
+            <hr>
+        </div>
+        <div class="mdui-tab mdui-m-a-1 common-menu-tab" mdui-tab>
+            <a id="left_nav" href="#tab-menu" class="mdui-ripple mdui-tab-active">导航</a>
+            <a id="left_search" href="#tab-search" class="mdui-ripple ">搜索</a>
+        </div>
+        <!-- 主导航开始 -->
+        <div class="mdui-clearfix menu" id="tab-menu">
+            <ul class="mdui-list f16 menu-list">
+
+                <li id="menu-item-0" class="mdui-list-item mdui-ripple"><a href="/">网站首页</a></li>
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-5-0.html">日韩有码</a></li>                                                                
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-6-0.html">日韩无码</a></li>                                                                 
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-7-0.html">欧美视频</a></li>                                                                 
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-8-0.html">国产视频</a></li>                                                                 
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-9-0.html">偷拍自拍</a></li>                                                                 
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-10-0.html">成人动漫</a></li>				
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-11-0.html">经典三级</a></li>
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-15-0.html">美熟少妇</a></li>
+							<li id="menu-item-1 " class="mdui-list-item mdui-ripple  "><a href="/?m=vod-type-16-0.html">变态另类</a></li>
+                                    
+                <!--<li id="menu-item-hfvip" class="mdui-list-item mdui-ripple vipli"><a href="http://pay.dailipay.net/">开通VIP</a>-->
+                <!--</li>-->
+            </ul>
+        </div>
+        <!-- 主导航结束 -->
+        <!-- 标签开始 -->
+        <!-- 标签结束 -->
+
+        <!-- 搜索开始 -->
+        <div class="mdui-clearfix mdui-p-a-1 common-search" id="tab-search" style="display:none">
+			
+                    <form >
+					 <div class="mdui-textfield">
+					<input type="text" style="display:none" name="m" value="search-type-so-0.html" />
+                        <input type="text" name="TXT" class="mdui-textfield-input" placeholder="请输入影片名或演员名">
+	</div>
+                <button type="submit"
+                        class="mdui-btn mdui-btn-block mdui-m-t-2 mdui-color-theme-accent mdui-ripple"><i
+                        class="fa fa-search"></i> 搜索
+                </button>
+                    </form>			
+			
+        </div>
+        <!-- 搜索结束 -->
+
+    </div>
+</div>
+<!-- 左侧通栏结束 -->
+
+    <!-- 右边主区域开始-->
+    <div class="mdui-float-left mdui-p-t-2 mdui-p-x-3 main-right">
+
+        <div class="pin-wrapper" style="height: 56px;">
+    <div class="mdui-p-t-1 main-right-userbox" style="width: 952px;">
+        <div id="msvod_login">
+            <div class="mdui-clearfix common-login" id="div_login_top">
+			    公告： <?php echo $dizhigongao;?>
+                <button class="mdui-btn mdui-color-theme-accent mdui-ripple button-reg-1769"><a href="<?php echo $dizhi1;?>" target="_blank"  class="mdui-btn">备用线路一</a></button>
+                <button class="mdui-btn mdui-color-theme-accent mdui-ripple button-reg-1769"><a href="<?php echo $dizhi2;?>" target="_blank"  class="mdui-btn">备用线路一</a></button>				
+
+            </div>
+            <script>
+                function showLoginBT() {
+                    if ($("#username").val() != "" && $("#password").val() != "") {
+                        $("#login_bt_top").removeAttr("disabled");
+                    }
+
+                }
+                $(document).ready(function () {
+                    //顶部登录
+                    $("#login_bt_top").click(function () {
+                        var token = $("#div_login_top input[name=token]").val();
+                        $.post('/index/user/user_login', {
+                                username: $("#div_login_top input[name=username]").val(),
+                                password: $("#div_login_top input[name=password]").val(),
+                                remember: $("#div_login_top input[name=remember]").val()
+
+                            },
+                            function (response) {
+
+                                if (response.code != "1") {
+                                    loginMsgTop(response.msg);
+                                } else {
+                                    //验证通过，提交表单
+                                    loginMsgTop("登录成功！正在转向。。。");
+                                    login_hide();
+                                    window.location.reload();
+                                }
+                            }, 'json');
+
+                    });
+
+
+                    $(".button-reg-1769").click(function () {
+                        $(".dialog-reg-tab a:last").removeClass("mdui-tab-active");
+                        $(".dialog-reg-tab a:first").addClass("mdui-tab-active");
+                        document.getElementById("tab-tips-1769").style.display = "block";
+                        document.getElementById("tab-tips-hf").style.display = "none";
+
+                    });
+
+//右侧菜单
+                    $("#right_menu_login").css("display", "");
+                    $("#right_menu_space").css("display", "none");
+                    $("#right_menu_reg1769").css("display", "");
+                });
+            </script>
+        </div>
+
+        <div class="mdui-typo">
+            <hr>
+        </div>
+    </div>
+</div>
+
+<!-- 通栏广告开始 -->
+                <div id="ad_globle_list_top_div" class="mdui-container-fluid mdui-p-a-0 common-topad" >
+                    <div class="mdui-row mdui-grid-list common-topad-list">
+<?php	Jccms_json_ad_top('<div class="mdui-col-xs-12"><a href="链接"  target="_blank"  ><img style="width:950px;height:100px;margin-bottom:2px;" src="图片"></a></div>');?>	
+
+
+                    </div>
+                </div>
+                <!-- 通栏广告结束 -->

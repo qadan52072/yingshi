@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>正在播放 <?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo '/template/'.$web_moban;?>/css/common.min.css" />
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/font/iconfont.css" />
+    <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/js/uikit.min.js"></script>
+</head>
+<body>
+<?php  include('./template/'.$web_moban.'/header.html');?>
+
+           <!-- 视频列表 -->
+            <div class="right-container">
+                <!-- 视频分类 -->
+                <div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix uk-margin-bottom">
+                        <!-- 面包屑 -->
+                        <div class="bred uk-float-left">
+                            <p>
+                                <i class="icon iconfont icon-home"></i>
+                                <span>您当前位置：</span>
+                                <a href="#"><?php echo $web_title;?></a>
+                                <i class="icon iconfont icon-right"></i>
+                                <a href="#" class="">视频播放</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <span class="right"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></span>
+                            </p>
+                            
+                        </div>
+                        <p class="title-tips uk-float-right">
+                            公告： <?php echo $dizhigongao;?>
+                        </p>
+                    </div>
+                    <div class="video-content">
+                        <!-- 视频标题 -->
+                        <div class="play-title">
+                            <h3><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></h3>
+                        </div>
+                        <!-- 播放器 -->
+                        <div class="player uk-clearfix">
+                            <div class="player-l uk-float-left">
+                                <div class="player-box">
+										<video id='myVideo'  class="video-js"></video>
+											<link rel="stylesheet" type="text/css" href="/static/VideoJS/video.min.css?v=3">
+											<script type="text/javascript" src="/static/VideoJS/video.min.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/video-conrtib-ads.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/myVideo.js?v=6" charset="utf-8" > </script>
+												<script type="text/javascript">
+												var vPath = '<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_playurl');?>';
+												var logo = '';
+												var myVideo=initVideo({
+                                                    id:'myVideo',
+                                                    url:vPath,
+													ad:{
+                                                      pre:{
+                                                          url:'',
+                                                          link:'',
+                                                      },
+												  	},
+                                                  	logo:{
+                                                        url:'/template/800CMSPC/images/logo.png',
+                                                        width:'100px'
+                                                    },
+												});
+												</script>								
+								</div>
+                                <!-- 播放器下方功能键 -->
+                                <div class="play-func uk-clearfix uk-margin-small-top">
+                                    <a href="#">
+                                        <i class="icon iconfont icon-like"></i>
+                                        <span>ID:<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_id');?></span>
+                                    </a>
+                                    <a href="#">
+                                        <i class="icon iconfont icon-shoucang"></i>
+                                        <span>分类ID:<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_type');?></span>
+                                    </a>
+                                    <a href="#">
+                                        <i class="icon iconfont icon-shoucang"></i>
+                                        <span>无法播放请刷新等待5-8秒或更换其他影片</span>
+                                    </a>									
+                                    <p class="play-time uk-float-right uk-margin-left">
+                                        <i class="icon iconfont icon-play"></i>
+                                        <span><?php  echo rand(5, 10000); ?></span>
+                                    </p>
+                                    <p class="date uk-float-right">
+                                        <i class="icon iconfont icon-weibiaoti--"></i>
+                                        <span><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 播放器右侧 推荐列表--> 
+                            <div class="player-r uk-float-right uk-grid uk-grid-small">
+                                <div class="uk-width-1-1 uk-margin-small-bottom ">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/1.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-margin-small-bottom">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/2.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+                                <div class="uk-width-1-1 uk-margin-small-bottom">
+                                    <a href="#" class="uk-display-block side-pic">
+                                        <img src="<?php echo '/template/'.$web_moban;?>/images/3.jpg" alt="video-pic">
+                                    </a>
+                                    <div class="video-title">
+                                        <a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php echo $web_title;?></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
+                        <div class="line">
+                            <hr>
+                        </div>
+                        
+
+                <div class="line">
+                    <hr>
+                </div>
+<center>
+	<?php	Jccms_json_ad_video('<a href="链接" target="_blank"><img style="width:980px;height:100px;margin-bottom:2px;" src="图片"></a>');?>	
+</center>
+
+            </div>
+			
+			
+					<div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix">
+                        <h3 class="h3-color uk-float-left">推荐视频</h3>
+                        <a href="?m=vod-type-<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_type');?>-0.html" class="more">更多推荐视频</a>
+                    </div>
+
+
+
+
+                    <div class="video-content uk-grid uk-grid-small">
+					
+					<?php  
+					include('./lib/datatop.php');
+					 $pagesize = 10; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+							<div class="uk-width-1-5 uk-margin-bottom">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" class="video-pic video-pic-h uk-display-block"><img src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>"></a>
+								<div class="video-title">
+									<a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+									<div class="uk-clearfix uk-margin-small-top">
+										<p class="video-play uk-float-left"><i class="icon iconfont icon-play"></i><span><?php  echo rand(5, 10000); ?></span></p>
+										<p class="video-like uk-float-left uk-margin-left"><i class="icon iconfont icon-like"></i><span><?php  echo rand(5, 10000); ?></span></p>
+									</div>
+								</div>
+							</div>
+					<?php		 }							 ?>						
+					
+
+
+
+
+                  
+                    </div>
+                </div>			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+        </div>
+
+</div>
+    </div>
+</div>
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+ 
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0,user-scalable=no" />
+	<meta name="renderer" content="webkit" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+	<meta charset="utf-8" />
+	<title>正在播放
+		<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?>
+	</title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/index.css" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/style.css" />
+	<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/fonts/iconfont.css" />
+</head>
+
+<body>
+	<?php  include('./template/'.$web_moban.'/header.html');?>
+	<main id="main">
+		<div class="container-fluid px-0">
+
+			<div class="row my-2">
+				<h5 class="container-title col-60">
+					<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?>
+				</h5>
+			</div>
+
+			<div class="row">
+				<div class="left col-40" style="height:400px">
+					<video id='myVideo' class="video-js"></video>
+
+
+					<link rel="stylesheet" type="text/css" href="/static/VideoJS/video.min.css?v=3">
+					<script type="text/javascript" src="/static/VideoJS/video.min.js?v=1" charset="utf-8"> </script>
+					<script type="text/javascript" src="/static/VideoJS/video-conrtib-ads.js?v=1" charset="utf-8"> </script>
+					<script type="text/javascript" src="/static/VideoJS/myVideo.js?v=6" charset="utf-8"> </script>
+					<script type="text/javascript">
+						var vPath = '<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_playurl');?>';
+						var logo = '';
+						var myVideo = initVideo({
+							id: 'myVideo',
+							url: vPath,
+							ad: {
+								pre: {
+									url: '',
+									link: '',
+								},
+							},
+							logo: {
+								url: '/template/800CMSPC/images/logo.png',
+								width: '100px'
+							},
+						});
+					</script>
+
+
+				</div>
+				<div class="right container-fluid col-20">
+					<div class="adv-pr mb-3">
+
+						<a href="#" target="_blank" class="d-block mb-1"><img src="<?php echo '/template/'.$web_moban;?>/images/zb1.jpg"></a>
+						<a href="#" target="_blank" class="d-block mb-1"><img src="<?php echo '/template/'.$web_moban;?>/images/zb.jpg"></a>
+
+					</div>
+				</div>
+			</div>
+
+
+
+
+
+
+
+
+			<?php	Jccms_json_ad_video('<a href="链接" target="_blank"><img style="width:100%;height:100px;margin-bottom:2px;" src="图片"></a>');?>
+
+
+			<div class="row my-2">
+				<h5 class="container-title col-60">视频推荐</h5>
+			</div>
+			<div class="row">
+				<?php 	include('./lib/datatop.php');$pagesize = 8; $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;$JCCMS_prev = $JCCMS_pages -1;$JCCMS_next = $JCCMS_pages +1;
+				$JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+				<div class="col-15">
+					<div class="video-elem">
+						<a class="display d-block" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<img class="w-100" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" />
+							<small class="layer">
+								<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></small>
+						</a>
+						<a class="title text-sub-title mt-2 mb-3" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+							<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+					</div>
+				</div>
+				<?php		 }?>
+			</div>
+		</div>
+
+
+
+		<hr />
+
+
+	</main>
+
+
+
+
+
+
+
+	<?php  include('./template/'.$web_moban.'/footer.html');?>
+</body>
+
+</html>

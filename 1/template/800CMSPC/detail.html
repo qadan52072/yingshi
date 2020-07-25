@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>正在播放 <?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/uikit.min.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo '/template/'.$web_moban;?>/css/common.min.css" />
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/font/iconfont.css" />
+    <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/js/uikit.min.js"></script>
+</head>
+<body>
+<?php  include('./template/'.$web_moban.'/header.html');?>
+
+           <!-- 视频列表 -->
+            <div class="right-container">
+                <!-- 视频分类 -->
+                <div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix uk-margin-bottom">
+                        <!-- 面包屑 -->
+                        <div class="bred uk-float-left">
+                            <p>
+                                <i class="icon iconfont icon-home"></i>
+                                <span>您当前位置：</span>
+                                <a href="#"><?php echo $web_title;?></a>
+                                <i class="icon iconfont icon-right"></i>
+                                <a href="#" class="">视频介绍</a>
+                                <i class="icon iconfont icon-right"></i>
+                                <span class="right"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></span>
+                            </p>
+                            
+                        </div>
+                        <p class="title-tips uk-float-right">
+                            公告： <?php echo $dizhigongao;?>
+                        </p>
+                    </div>
+					<div class="video-content">
+                        <div class="read">
+                            <div class="read-img">
+                                <img src="<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_pic');?>" alt="">
+                            </div>
+
+                            <!-- 标题 -->
+                            <h3 class="uk-text-left uk-margin-bottom"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></h3>
+                            <!-- 影片信息 -->
+                            <div class="read-text uk-margin-top-remove uk-clearfix">
+                                <!-- 播放按钮 -->
+                                <div class="read-btn uk-margin-bottom uk-float-left">
+                                    <a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html" class="uk-float-left uk-margin-large-right uk-button h-line ">在线播放</a>
+                                    <a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html" class="uk-float-left uk-margin-large-right uk-button h-line ">备用线路</a>
+                                </div>
+                                <p class="uk-float-left uk-margin-large-right">影片分类:<span><?php JCCMS_type(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));?></span></p>
+                                <p class="uk-float-left uk-margin-large-right">更新时间:<span><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="line">
+                            <hr>
+                        </div>
+                    </div>					
+					<div class="list-videos uk-margin-top uk-margin-bottom">
+                    <div class="video-head uk-clearfix">
+                        <h3 class="h3-color uk-float-left">推荐视频</h3>
+                        <a href="?m=vod-type-<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_type');?>-0.html" class="more">更多推荐视频</a>
+                    </div>
+
+
+
+
+                    <div class="video-content uk-grid uk-grid-small">
+					
+					<?php  
+					include('./lib/datatop.php');
+					 $pagesize = 10; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+							<div class="uk-width-1-5 uk-margin-bottom">
+								<a href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" class="video-pic video-pic-h uk-display-block"><img src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>"></a>
+								<div class="video-title">
+									<a href="#" class="uk-margin-small-bottom uk-margin-small-top uk-display-block"><?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+									<div class="uk-clearfix uk-margin-small-top">
+										<p class="video-play uk-float-left"><i class="icon iconfont icon-play"></i><span><?php  echo rand(5, 10000); ?></span></p>
+										<p class="video-like uk-float-left uk-margin-left"><i class="icon iconfont icon-like"></i><span><?php  echo rand(5, 10000); ?></span></p>
+									</div>
+								</div>
+							</div>
+					<?php		 }							 ?>						
+					
+
+
+
+
+                  
+                    </div>
+                </div>
+				<div class="line">
+                    <hr>
+                </div>
+
+
+
+        </div>
+
+</div>
+    </div>
+</div>
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+ 
+</body>
+</html>

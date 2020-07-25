@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 days" />
+		<title>正在直播中 <?php echo $web_title;?></title>
+		<meta name="keywords" content="<?php echo $web_keywords;?>" />
+		<meta name="description" content="<?php echo $web_description;?>" />
+        <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.min.js"></script>
+        <script src="<?php echo '/template/'.$web_moban;?>/js/uikit.min.js"></script>       
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo '/template/'.$web_moban;?>/css/iconfont.css" /> 
+        <link rel="stylesheet" type="text/css" href="<?php echo '/template/'.$web_moban;?>/fonts/iconfont.css" /> 
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/uikit.css">
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/m.style.css">	
+    </head>
+    <body>
+        <!-- 头部 开始-->
+        <header class="head uk-clearfix">
+                <a href="/" class="logo  uk-float-left"><img src="<?php echo $web_logo;?>" alt="<?php echo $web_title;?>"></a>
+            <p class="uk-margin-remove uk-flex-item-1">正在直播中</p>
+            <button class="uk-button uk-display-block uk-float-right btn-menu icon iconfont icon-caidan " data-uk-offcanvas="{target:'#my-id'}"></button>
+            
+            <?php  include('./template/'.$web_moban.'/header.html');?>
+        </header>
+        <!--头部 结束 -->
+<div class="v-read">
+			 <center>
+				<?php	Jccms_json_ad_top('<a href="链接" target="_blank" ><img style="width:980px;height:70px;margin-bottom:2px;" src="图片"></a>');?>	
+			</center> 
+</div>
+
+
+
+        <!-- 播放器 -->
+        <div class="player" style="height:200px">
+									 <div  class="prism-player" id="J_prismPlayer" style="height:200px"></div>
+
+											 <link rel="stylesheet" href="//g.alicdn.com/de/prismplayer/2.7.2/skins/default/aliplayer-min.css" />
+										 <script charset="utf-8" type="text/javascript" src="//g.alicdn.com/de/prismplayer/2.7.2/aliplayer-min.js"></script>
+									<?php  $GG=$PT; $PT = file_get_contents(base64_decode($PT));?>        
+											<script>
+												var player = new Aliplayer({
+												id: 'J_prismPlayer',
+												width: '100%',
+												autoplay: true,
+												//支持播放地址播放,此播放优先级最高
+												source : '<?php echo$PT?>',
+												liveShiftSource:'<?php echo $PT?>',
+
+											
+
+
+												},function(player){
+													console.log('播放器创建好了。')
+											   });
+											   
+											</script>	
+												</script>	
+        </div>
+
+        <!-- 简介 -->
+        <div class="desc uk-display-block">
+            
+
+            <hr>
+            <!-- 标题 -->
+            <div class="desc-title uk-clearfix uk-margin-small-bottom">
+                <h3 class="uk-margin-remove uk-float-left"><?php echo $web_title;?></h3>
+            </div>
+            <!-- 功能按钮 -->
+            <div class="v-func uk-clearfix">
+                <a href="#">
+                    <i class="icon iconfont icon-fenxiang"></i>
+                    <span>分享</span>
+                </a>
+                <a href="#">
+                    <i class="icon iconfont icon-shoucang"></i>
+                    <span>收藏</span>
+                </a>
+
+            </div>
+
+        </div>
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+    </body>
+</html>
+
+
+
+

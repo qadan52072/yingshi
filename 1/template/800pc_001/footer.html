@@ -1,0 +1,85 @@
+
+        <script>var pageid = 'index';</script>
+        <script src="<?php echo '/template/'.$web_moban;?>/static/js/index.js"></script>
+
+    </div>
+    <!-- 右边主区域结束 -->
+</div>
+
+<!-- 公共底部开始 -->
+<div class="mdui-color-theme mdui-clearfix mdui-p-y-2 foot">
+    <div class="mdui-float-left foot-qrcode" id="foot_wechat">
+        <span>电报群(Telegram)</span>
+        <div class="mdui-m-t-1 foot-qrcode-wechat"><a href="#" target="_blank"><img src="<?php echo '/template/'.$web_moban;?>/static/images/qrcode-telegram.png" alt="草六九狼友交流群">
+            </a></div>
+            <span class="f12">狼友交流群</span>
+    </div>
+    <div class="mdui-text-left mdui-float-left foot-main">
+        <p>
+
+            联系方式：邮箱帐号：<?php echo $web_email;?> （广告合作） 。在线时间：周一至周五 9:00-18:00 
+			<div style="display: none;"></div>
+        </p>
+
+        <div class="mdui-typo">
+            <hr>
+        </div>
+        <p class="mdui-typo-caption text-letter-spacing-normal">警告：本网站明确包含成人内容。<br>
+            本网站严禁发表任何类型的儿童色情、兽交、强奸暴力，死亡或者其它不合法的内容。只有您年满18岁或者您在您的居住管辖区内属于成年人，您才能进入到本网站。如果你不符合这些要求或者所在的地区法律不允许成人内容，那么你就没有权限使用本网站，请离开！
+        </p>
+    </div>
+</div>
+<!-- 公共底部结束 -->
+
+
+<!-- 右侧固定菜单开始 -->
+<div id="fixed" class="mdui-color-theme">
+    <dl>
+        <dd><span id="btn-top"><i class="fa fa-angle-up"></i>TOP</span></dd>
+    </dl>
+</div>
+<!-- 右侧固定菜单结束 -->
+
+
+
+    <script>
+
+        $(".button-reg-1769").click(function () {
+            $(".dialog-reg-tab a:last").removeClass("mdui-tab-active");
+            $(".dialog-reg-tab a:first").addClass("mdui-tab-active");
+            document.getElementById("tab-tips-1769").style.display = "block";
+
+        });
+    </script>
+
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/common.js"></script>
+    <script>
+        $(".main-right-userbox").pin({
+            containerSelector: ".main-right",
+        })
+        $(".main-left").pin({
+            containerSelector: ".main-pin",
+        })
+    </script>
+
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/login.js"></script>
+    <script src="<?php echo '/template/'.$web_moban;?>/static/js/log.js"></script>
+
+    <script type="text/javascript">
+        var msvod_path = "/";
+    </script>
+    <script>
+        var isVip = "";
+        var video_ad_status = '1';
+    </script>
+    <script>
+        $(document).ready(function () {
+            if (isVip == "") {
+                $("#ad_globle_div").css("display", "inline");
+                $("#ad_globle_list_top_div").css("display", "inline");
+            }
+        });
+    </script>
+    <script src="<?php echo '/template/'.$web_moban;?>/js/common.js"></script>
+    </body>
+</html>

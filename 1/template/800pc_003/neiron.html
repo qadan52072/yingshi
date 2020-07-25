@@ -1,0 +1,102 @@
+<html>
+    
+    <head>
+       <title>?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></title>
+       <?php  include('./template/'.$web_moban.'/header.html');?>
+   
+                            <div data-v-29791d2c="" class="el-col el-col-19" style="padding-left: 15px; padding-right: 15px;">
+                                <div data-v-29791d2c="">
+                                    <div data-v-29791d2c="" class="title"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></div>
+                                    <div data-v-29791d2c="" class="player-container">
+                                        <div data-v-29791d2c="" id="player" class="player dplayer dplayer-no-danmaku">
+                                           <video id='myVideo'  class="video-js"></video>
+											<link rel="stylesheet" type="text/css" href="/static/VideoJS/video.min.css?v=3">
+											<script type="text/javascript" src="/static/VideoJS/video.min.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/video-conrtib-ads.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/myVideo.js?v=6" charset="utf-8" > </script>
+												<script type="text/javascript">
+												var vPath = '<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_playurl');?>';
+												var logo = '';
+												var myVideo=initVideo({
+                                                    id:'myVideo',
+                                                    url:vPath,
+													ad:{
+                                                      pre:{
+                                                          url:'',
+                                                          link:'',
+                                                      },
+												  	},
+                                                  	logo:{
+                                                        url:'/template/800CMSPC/images/logo.png',
+                                                        width:'100px'
+                                                    },
+												});
+												</script>								
+                                            <div class="dplayer-notice"></div>
+                                        </div>
+                                        <div data-v-29791d2c="" class="player-detail" style="">
+                                            <div data-v-29791d2c="" class="detail-title"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></div>
+                                            <div data-v-29791d2c="" class="player-info">
+                                                <span data-v-29791d2c="" class="icon-info-times ">无法播放请等待5-8秒或更换其他影片</span>
+                                                <span data-v-29791d2c="" class="icon-create-at"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></span>
+                                                <span data-v-29791d2c="" class="icon-info-counts"><?php  echo rand(5, 10000); ?>人看过</span></div>
+                                            <div data-v-29791d2c="" class="player-tag">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                     <section data-v-91cc7144="" data-v-29791d2c="" class="video-carousel datail_bottom">
+                                        <div data-v-91cc7144="" class="title">你可能还喜欢</div>
+                                        <div data-v-91cc7144="">
+                                            <div data-v-91cc7144="" class="el-carousel">
+                                                <div class="el-carousel__container" style="height: 406px;">
+                                                    <!---->
+                                                    <!---->'
+                                                    <div data-v-91cc7144="" class="el-carousel__item is-active is-animating" style="transform: translateX(0px) scale(1);">
+                                                        <!---->
+                                                        <div data-v-91cc7144="" class="row">
+                                                         <?php  
+					include('./lib/datatop.php');
+					 $pagesize = 8; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+                                                            <a href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+                                                            <div data-v-91cc7144 class="cell">
+                                                                <div data-v-91cc7144 class="img-info">
+                                                                    <img data-v-91cc7144="" ondragstart="return false" src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" class="lazy" data-src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" lazy="loaded">
+                                                                    <div data-v-91cc7144="" class="video-info">
+                                                                        <div data-v-91cc7144=""></div>
+                                                                        <div data-v-91cc7144="">
+                                                                            <a data-v-91cc7144=""></a><?php  echo rand(5, 10000); ?></div>
+                                                                    </div>
+                                                                </div>
+                                                                <div data-v-91cc7144="" class="is-vip" style="display: none;">VIP</div>
+                                                                <div data-v-91cc7144="" class="show-title"><?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div></div>
+                                                                </a>
+                                                          <?php		 }							 ?>		
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!----></div>
+          <?php  include('./template/'.$web_moban.'/footer.html');?>
+        </div>
+   
+    </body>
+
+</html>

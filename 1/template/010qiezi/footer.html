@@ -1,0 +1,57 @@
+<footer>
+	<div class="row">
+		<div class="col-md-8">
+
+			<div class="col-md-10">
+				<p>
+					本網站已依網站內容分級規定處理。本網站提供成人在線影音服務，進入參觀之前，請先確定您已年滿法律許可之法定年齡！如果您是未滿18歲者或對成人情色反感，建議您也請勿參訪本站！
+				</p>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p>
+				广告合作联系方式：
+				<?php echo $web_email;?>
+			</p>
+		</div>
+	</div>
+</footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<script>
+	(function () {
+
+		// 公告栏 文字滚动
+		var begin2 = 0;
+		var marquee = $('.marquee p');
+		var wideMarquee = parseInt(marquee.width());
+		$('.marquee').append(marquee.clone(true));
+
+		var roll2 = setInterval(function () {
+			begin2 -= 1;
+			marquee.css({ 'margin-left': begin2 + 'px' })
+			if (-begin2 >= wideMarquee) {
+				begin2 = 0;
+			}
+		}, 20);
+
+	}());
+
+</script>

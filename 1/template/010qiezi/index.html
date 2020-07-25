@@ -1,0 +1,136 @@
+
+<?php  
+$pagesize = 8; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?php echo $web_title;?></title>
+<meta name="keywords" content="<?php echo $web_keywords;?>" />
+<meta name="description" content="<?php echo $web_description;?>" />
+<link href="<?php echo '/template/'.$web_moban;?>/images/bootstrap.css" rel="stylesheet">
+<link href="<?php echo '/template/'.$web_moban;?>/images/nky.css" rel="stylesheet">
+<link href="<?php echo '/template/'.$web_moban;?>/images/font-awesome.min.css" rel="stylesheet">
+<link href="<?php echo '/template/'.$web_moban;?>/images/simple-line-icons.min.css" rel="stylesheet" type="text/css">
+<link href="<?php echo '/template/'.$web_moban;?>/images/default.css" rel="stylesheet">
+<link href="<?php echo '/template/'.$web_moban;?>/images/layout.css" rel="stylesheet" type="text/css">
+<link href="<?php echo '/template/'.$web_moban;?>/images/custom.css" rel="stylesheet" type="text/css">
+<script src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+<script src="<?php echo '/template/'.$web_moban;?>/js/zepto.min.js"></script>
+<script src="<?php echo '/template/'.$web_moban;?>/js/jq/jquery.lazyload.js"></script>
+<script src="<?php echo '/template/'.$web_moban;?>/js/jq/jquery.autocomplete.js"></script>
+<script src="<?php echo '/template/'.$web_moban;?>/js/home.js"></script>
+<script src="<?php echo '/template/'.$web_moban;?>/js/tpl.js"></script>
+</head> 
+<body class="ad-box">
+<?php  include('./template/'.$web_moban.'/header.html');?>
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header"><?php JCCMS_type('5'); ?>
+                    <small>movie</small></h1>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+	<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++)
+	{ 
+		?>
+		<div class="col-md-3 portfolio-item new-video">
+			<div class="new-video-icon">
+			</div>
+			<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><img class="img-responsive" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" width="280" height="160"/></a>
+			<div class="v-title">
+				<div class="uptime">
+					<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+				</div>
+				  上架时间：<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?><br>
+				<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html"target="_blank"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+			</div>
+		</div>
+    <?php		 } ?>	
+	</div>	
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header"><?php JCCMS_type('10'); ?>
+                    <small>movie</small></h1>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+	<?php $JCCMS_SQL=JCCMS_chuli('10');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+		<div class="col-md-3 portfolio-item new-video">
+			<div class="new-video-icon">
+			</div>
+			<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><img class="img-responsive" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" width="280" height="160"/></a>
+			<div class="v-title">
+				<div class="uptime">
+					<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+				</div>
+				  上架时间：<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?><br>
+				<a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html"target="_blank"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a>
+			</div>
+		</div>
+    <?php		 }?>	
+	</div>	
+
+	<div class="row">
+		<div class="col-lg-12">
+			<h1 class="page-header">直播频道
+                    <small>movie</small></h1>
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+				<?php
+			 $json_string = file_get_contents($zhibourl);
+			 $data = json_decode($json_string, true);$datas = $data['fileinfo'];$pageresult = $data['pageresult'];$page = $data['page'];$datass =NULL;
+			for ($x=0; $x<=7; $x++) {
+			  $val=$datas[$x];$address=$val['m3u8'];$img=$val['pic'];$title=$val['name'];
+
+			?>
+		<div class="col-md-3 portfolio-item new-video">
+			<div class="new-video-icon">
+			</div>
+			<a href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html" target="_blank"><img class="img-responsive" src="<?php echo $img;?>" width="280" height="160"/></a>
+			<div class="v-title">
+				<div class="uptime">
+					<?php echo $title ?>
+				</div>
+				  时时直播<br>
+				<a href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html"target="_blank"><?php echo $title ?></a>
+			</div>
+		</div>
+    <?php		 }?>	
+	</div>	
+
+	<div class="row">
+		<div class="col-lg-12">
+			友情链接
+			<hr>
+			<div class="row">
+			<?php echo  Jccms_json_connection('<div class="col-md-2 portfolio-item"><a class="text-sub-title mx-2 text-small" href="链接" target="_blank">标题</a></div>',JCCMS_ROOT);?>
+			
+			</div>
+		</div>
+	</div>
+
+
+ 
+
+
+ <?php  include('./template/'.$web_moban.'/footer.html');?>
+
+</body>
+</html>
+
+
+
+
+
+
+

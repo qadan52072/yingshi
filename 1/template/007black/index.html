@@ -1,0 +1,134 @@
+
+<?php  
+$pagesize = 20; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8" />
+	<title><?php echo $web_title;?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/index.css" />
+ </head>
+ <body class="s-10-1">
+ <?php  include('./template/'.$web_moban.'/header.html');?>
+  <div id="main">
+   <div class="caoporn_main">
+    <div class="box980">
+     <div class="left600 new-vod">
+      <div class="caoporn_title">
+       <h2><?php JCCMS_type('5'); ?>|公告： <?php echo $dizhigongao;?></h2>
+      </div>
+      <ul class="index_video">
+	  
+	  
+	  
+
+		<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+      <li><a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" /><p><em><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></em><b>欧美性爱</b></p><h3><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></h3></a></li>
+ 
+		<?php		 }?>		  
+	  
+	  
+	  
+      </ul>
+     </div>
+     <div class="left370 new-art">
+      <div class="caoporn_title">
+       <h2 class="p0"><?php JCCMS_type('5'); ?>-文字推荐</h2>
+      </div>
+      <ul class="index_movie">
+
+
+	  
+	 		<?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+       <li><a class="title2" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a><span>[视频文字推荐]</span></li>
+		<?php		 }?> 	  
+	  
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	 
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>	
+       <li><a class="title2">富强民主文明和谐自由平等公正法治</a><span>[核心价值观]</span></li>		   
+      </ul>
+     </div>
+    </div>
+   </div>
+   <div class="caoporn_main">
+    <div class="caoporn_Maincontentfive">
+     <div class="caoporn_mcfive_title">
+      <h2><?php JCCMS_type('10'); ?></h2>
+     </div>
+     <div class="caoporn_mcfive_Ct">
+      <ul class="caoporn_video">
+	  
+		<?php $JCCMS_SQL=JCCMS_chuli('10');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+       <li><a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><h3><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></h3><img alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" /><img class="hd" src="<?php echo '/template/'.$web_moban;?>/images/hd.png" alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" /><p><b><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></b></p><span></span></a></li>
+		<?php		 }?>		  
+	  
+      </ul>
+     </div>
+    </div>
+   </div>
+   
+   
+    <div class="caoporn_main">
+    <div class="caoporn_Maincontentfive">
+     <div class="caoporn_mcfive_title">
+      <h2>直播频道</h2>
+     </div>
+     <div class="caoporn_mcfive_Ct">
+      <ul class="caoporn_video">
+   <?php
+
+ $json_string = file_get_contents($zhibourl);
+ $data = json_decode($json_string, true);$datas = $data['fileinfo'];$pageresult = $data['pageresult'];$page = $data['page'];$datass =NULL;
+for ($x=0; $x<=14; $x++) {
+  $val=$datas[$x];$address=$val['m3u8'];$img=$val['pic'];$title=$val['name'];
+
+?>
+
+ <li><a href="/?m=zhibo-neiron-id-<?php echo base64_encode($address)?>.html" target="_blank"><h3><?php echo $title ?></h3><img alt="<?php echo $title ?>" src="<?php echo $img?>" /><img class="hd" src="<?php echo '/template/'.$web_moban;?>/images/hd.png" alt="<?php echo $title ?>" /><p><b>直播中</b></p><span></span></a></li>
+
+<?php
+
+
+}	  
+?>		  
+      </ul>
+     </div>
+    </div>
+   </div>  
+   
+
+  <div class="caoporn_main">
+    <div class="caoporn_flink">
+     <div class="caoporn_flink_title">
+      <span>友情链接</span>
+     </div>
+     <div class="caoporn_flink_Ct">
+      <ul>
+
+	  <?php echo  Jccms_json_connection('<li><a href="链接" target="_blank" rel="nofollow">标题</a></li>',JCCMS_ROOT);?>
+
+	  </ul>
+     </div>
+    </div>
+   </div>
+  </div>
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+ </body>
+</html>

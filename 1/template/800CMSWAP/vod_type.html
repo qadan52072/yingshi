@@ -1,0 +1,192 @@
+
+<?php  
+$pagesize = 12; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 days" />
+        
+		<title><?php echo $web_title;?></title>
+		<meta name="keywords" content="<?php echo $web_keywords;?>" />
+		<meta name="description" content="<?php echo $web_description;?>" />
+        <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.min.js"></script>
+        <script src="<?php echo '/template/'.$web_moban;?>/js/owl.carousel.min.js"></script>
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo '/template/'.$web_moban;?>/css/iconfont.css" /> 
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/m.style.css">
+    </head>
+    <body>
+       <!-- 头部 开始-->
+        <div class="head uk-clearfix">
+            <a href="/" class="logo  uk-float-left"><img src="<?php echo $web_logo;?>" alt="<?php echo $web_title;?>"></a>
+            <div class="search uk-float-left uk-clearfix">
+                <form id="ffsearch" name="ffsearch" method="GET" action="">
+				<input type="text" style="display:none" name="m" value="search-type-so-0.html" />
+                    <input class="uk-float-left uk-display-block" type="text" name="TXT" id="wd"  placeholder="影片名 / 演员名 / 导演">
+
+					 <button class="submit uk-float-left uk-display-block icon iconfont icon-sousuo" type="submit"></button>
+                </form>
+            </div>
+        </div>
+        <!--头部 结束 -->
+
+         <!-- 导航 开始 -->
+        <div class="nav-warp" >
+            <ul class="nav">
+                <li class="active"><a href="/" >首页</a></li>
+                <li class="nav-parent"><a href="javascript:;" >视频一区</a></li>
+                <li class="nav-parent"><a href="javascript:;" >直播专区</a></li>
+
+            </ul>
+            <div class="nav-child-box">
+                <ul class="nav-child uk-margin-remove uk-clearfix">
+							<li><a  href="/?m=vod-type-5-0.html">日韩有码</a></li>                                                                
+							<li><a  href="/?m=vod-type-6-0.html">日韩无码</a></li>                                                                 
+							<li><a  href="/?m=vod-type-7-0.html">欧美视频</a></li>                                                                 
+							<li><a  href="/?m=vod-type-8-0.html">国产视频</a></li>                                                                 
+							<li><a  href="/?m=vod-type-9-0.html">偷拍自拍</a></li>                                                                 
+							<li><a  href="/?m=vod-type-10-0.html">成人动漫</a></li>				
+							<li><a  href="/?m=vod-type-11-0.html">经典三级</a></li>
+							<li><a  href="/?m=vod-type-15-0.html">美熟少妇</a></li>
+							<li><a  href="/?m=vod-type-16-0.html">变态另类</a></li>
+                </ul>
+
+                <ul class="nav-child uk-margin-remove uk-clearfix">
+							<li><a  href="/?m=zhibo-type-24-1.html">精选直播</a></li>
+							<li><a  href="/?m=zhibo-type-25-1.html">女性直播</a></li>
+							<li><a  href="/?m=zhibo-type-26-1.html">男性直播</a></li>
+							<li><a  href="/?m=zhibo-type-27-1.html">男女直播</a></li>
+							<li><a  href="/?m=zhibo-type-28-1.html">人妖直播</a></li>
+							<li><a >预留位置</a></li> 
+                </ul>				
+            </div>
+            
+        </div>
+        <!-- 导航 结束 -->
+
+  <div class="v-type ">
+
+			 <center>
+				<?php	Jccms_json_ad_top('<a href="链接" target="_blank" ><img style="width:980px;height:70px;margin-bottom:2px;" src="图片"></a>');?>	
+			</center> 
+	</div>
+
+    
+
+        <!-- 视频分类 开始 -->
+        <div class="v-type " style="margin-top: 0rem; ">
+            <!-- 标题 -->
+            <div class="v-type-title uk-clearfix">
+  
+                <div>
+                    <h3 class="type-h3">视频分类：<?php echo $C_T_2_name;?></h3>
+                </div>
+            </div>
+            <!-- 视频缩略图 -->
+            <ul class="v-list uk-clearfix uk-display-block">
+<?php
+
+	for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){
+
+?>
+
+                <li class="v-item v-item">
+                    <a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" class="uk-display-block">
+                        <div class="v-cover lazy" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+                
+                        </div>
+                        <h3 class="v-title"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></h3>
+                        <div class="uk-clearfix v-icon">
+                            <p class="uk-float-left uk-margin-right">
+                                <i class="icon iconfont icon-play"></i>
+                                <span><?php  echo rand(5, 10000); ?></span>
+                            </p>
+                            <p class="uk-float-left uk-margin-top-remove">
+                                <i class="icon iconfont icon-zan"></i>
+                                <span><?php  echo rand(5, 10000); ?></span>
+                            </p>
+                        </div>
+                    </a>
+                </li>						
+ 
+<?php	
+			 }
+		 
+	?>	
+
+            </ul>
+
+            <!-- 分页 -->
+            <ul class="uk-pagination">
+
+<?php
+ 
+if($JCCMS_page >=1){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_prev);?>.html"><span><i class="icon iconfont icon-arrowleft"></i></span></a></li>
+<?php
+}
+?>
+
+<?php
+if($JCCMS_page < $JCCMS_pagecount-8){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo  $JCCMS_page+1;?>.html"><?php echo  $JCCMS_page+1;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+2;?>.html"><?php echo   $JCCMS_page+2;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+3;?>.html"><?php echo   $JCCMS_page+3;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+4;?>.html"><?php echo   $JCCMS_page+4;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+5;?>.html"><?php echo   $JCCMS_page+5;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+6;?>.html"><?php echo   $JCCMS_page+6;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+7;?>.html"><?php echo   $JCCMS_page+7;?></a></li>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php echo   $JCCMS_page+8;?>.html"><?php echo   $JCCMS_page+8;?></a></li>
+
+<?php
+
+}
+
+
+?>
+
+<?php
+if($JCCMS_page < $JCCMS_pagecount){
+?>
+<li><a href="/?m=vod-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_next);?>.html"><i class="icon iconfont icon-arrowright"></i></a></li>
+
+<?php
+}
+
+
+
+?>					
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+            </ul>
+        </div>
+        <!-- 视频分类 结束 -->
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+    </body>
+</html>
+</html>
+
+
+
+
+
+

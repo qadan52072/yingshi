@@ -1,0 +1,113 @@
+<?php  
+$pagesize = 12; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title><?php echo $web_title;?></title>
+    <?php  include('./template/'.$web_moban.'/header.html');?>
+                       <div data-v-8a13a474="" class="el-col el-col-19" style="padding-left: 15px; padding-right: 15px;">
+                            <section data-v-6ea9c9b2="" data-v-8a13a474="" class="video-carousel domestic">
+                                <div data-v-6ea9c9b2="" class="title"><?php JCCMS_type('5'); ?></div>
+                                <div data-v-6ea9c9b2="">
+                                    <div data-v-6ea9c9b2="" class="row">
+                                        <?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?> 
+                                        
+                                        <div data-v-6ea9c9b2="" class="cell">
+                                            <a style="color:#FFF;" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+                                        <div data-v-6ea9c9b2="" class="img-info">
+                                            <img data-v-6ea9c9b2="" ondragstart="return false" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" class="lazy" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" lazy="loaded">
+                                            <div data-v-6ea9c9b2="" class="video-info">
+                                                <div data-v-6ea9c9b2=""> </div>
+                                                <div data-v-6ea9c9b2="">
+                                                    <a data-v-6ea9c9b2=""></a><?php  echo rand(5, 10000); ?></div>
+                                            </div>
+                                        </div>
+                                        <div data-v-6ea9c9b2="" class="is-vip" style="display: none;">VIP</div>
+                                        <div data-v-6ea9c9b2="" class="show-title"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div>
+                                        </a>
+                                    </div>
+                                        <?php		 }?>
+                                    </div>
+                                    <!-- <div data-v-6ea9c9b2="" onselectstart="return false" class="CarouselBtn">
+                                        <span data-v-6ea9c9b2="" class="dayu el-icon-arrow-left"></span>
+                                        <span data-v-6ea9c9b2="" class="isindex">1</span>
+                                        <span data-v-6ea9c9b2="" class="divide">/</span>
+                                        <span data-v-6ea9c9b2="" class="datalength">5</span>
+                                        <span data-v-6ea9c9b2="" class="xiaoyu el-icon-arrow-right"></span>
+                                    </div> -->
+                                </div>
+                            </section>
+                            <section data-v-6ea9c9b2="" data-v-8a13a474="" class="video-carousel japan">
+                                <div data-v-6ea9c9b2="" class="title"><?php JCCMS_type('8'); ?></div>
+                                <div data-v-6ea9c9b2="">
+                                    <div data-v-6ea9c9b2="" class="row">
+                                        <?php $JCCMS_SQL=JCCMS_chuli('8');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?> 
+                                        
+                                        <div data-v-6ea9c9b2="" class="cell">
+                                            <a style="color:#FFF;" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+                                        <div data-v-6ea9c9b2="" class="img-info">
+                                            <img data-v-6ea9c9b2="" ondragstart="return false" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" class="lazy" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" lazy="loaded">
+                                            <div data-v-6ea9c9b2="" class="video-info">
+                                                <div data-v-6ea9c9b2=""> </div>
+                                                <div data-v-6ea9c9b2="">
+                                                    <a data-v-6ea9c9b2=""></a><?php  echo rand(5, 10000); ?></div>
+                                            </div>
+                                        </div>
+                                        <div data-v-6ea9c9b2="" class="is-vip" style="display: none;">VIP</div>
+                                        <div data-v-6ea9c9b2="" class="show-title"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div>
+                                        </a>
+                                    </div>
+                                        <?php		 }?>
+                                    </div>
+                                   
+                                </div>
+                            </section>
+                            <section data-v-6ea9c9b2="" data-v-8a13a474="" class="video-carousel europe">
+                                <div data-v-6ea9c9b2="" class="title"><?php JCCMS_type('7'); ?></div>
+                                <div data-v-6ea9c9b2="">
+                                    <div data-v-6ea9c9b2="" class="row">
+                                        <?php $JCCMS_SQL=JCCMS_chuli('7');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?> 
+                                        
+                                        <div data-v-6ea9c9b2="" class="cell">
+                                            <a style="color:#FFF;" href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html">
+                                        <div data-v-6ea9c9b2="" class="img-info">
+                                            <img data-v-6ea9c9b2="" ondragstart="return false" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" class="lazy" data-original="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" lazy="loaded">
+                                            <div data-v-6ea9c9b2="" class="video-info">
+                                                <div data-v-6ea9c9b2=""> </div>
+                                                <div data-v-6ea9c9b2="">
+                                                    <a data-v-6ea9c9b2=""></a><?php  echo rand(5, 10000); ?></div>
+                                            </div>
+                                        </div>
+                                        <div data-v-6ea9c9b2="" class="is-vip" style="display: none;">VIP</div>
+                                        <div data-v-6ea9c9b2="" class="show-title"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div>
+                                        </a>
+                                    </div>
+                                        <?php		 }?>
+                                    </div>
+                                   
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div data-v-8a13a474="" class="main-container">
+<!--底部广告位置-->
+                </div>
+                <div class="main-container">
+                    友情链接：
+                <ul>
+				<?php echo  Jccms_json_connection('<li><a href="链接" target="_blank"style="color:#333">标题</a></li>',JCCMS_ROOT);?>
+                </ul>
+            </div>
+            </section>
+            
+            <!---->
+         </div>
+      <?php  include('./template/'.$web_moban.'/footer.html');?>
+    </div>
+</body>
+</html> 

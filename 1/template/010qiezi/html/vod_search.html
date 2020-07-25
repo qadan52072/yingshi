@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{page:key}-{maccms:name}</title>
+<meta name="keywords" content="{page:key},{maccms:name}"/>
+<meta name="description" content="{page:key},{maccms:name}"/>
+{maccms:include}
+</head>
+<body class="ad-box">
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 navbar-header">
+			<a class="navbar-brand" href="/">
+			<div class="logo" height="90">
+				<img class="img-responsive" src="{maccms:path_tpl}images/logo.png" width="240"/>
+			</div>
+			<div class="slogan">
+				最近網址：{maccms:url}
+			</div>
+			</a>
+			<hr>
+		</div>
+		<div class="col-md-9 top-nav">
+			<a href="/" class="btn btn-danger btn-lg ">首页</a>
+		{maccms:menu type=all}
+			<a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	    {/maccms:menu}
+		</div>
+	</div>
+	<div align="center">
+		<div class="ads">
+			<!--AD-->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3">
+			<div class="well">
+				<form raction="{maccms:link_search_vod}" method="post" autocomplete="off">
+					<div class="input-group">
+						<input type="text" class="form-control" id="wd" name="wd" placeholder="万部影片任你搜索" value="">
+						<span class="input-group-btn">
+						<button class="btn btn-default" type="submit">搜索</button>
+						</span>
+					</div>
+				</form>
+			</div>
+			<div class="well">
+				<h4>本周排行榜</h4>
+				<ul>
+					{maccms:vod num=18 type=all by=dayhits order=desc}
+					<li><a href="[vod:playlink]" title="[vod:name]">[vod:name]</a></li>
+					{/maccms:vod}
+				</div>
+				<div class="well">
+					<h4>本月排行榜</h4>
+					<ul>
+						{maccms:vod num=18 type=all by=monthhits order=desc}
+						<li><a href="[vod:playlink]" title="[vod:name]">[vod:name]</a></li>
+					{/maccms:vod}
+					</ul>
+				</div>
+			</div>
+			<!-- begin col-lg-8-->
+			<div class="col-lg-9">
+				<div class="row">
+					<div class="col-md-12 class-feed-btn2">
+						<ul>
+	                   		{maccms:menu type=1,2,3,4}
+							<a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	                        {/maccms:menu}
+						</ul>
+					</div>
+					<div class="">
+						<div class="row">
+							<div class="col-lg-8">
+								<h1 class="page-header">搜索 <strong style="color:#FF0000">{page:key}</strong> 的结果共 <strong style="color:#FF0000">{page:datacount}</strong> 条</h1>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+			             {maccms:vod pagesize=12 order=desc by=time}
+							<div class="col-md-3 portfolio-item new-video">
+								<div class="new-video-icon">
+									<img src="{maccms:path_tpl}images/title_newest_cn.png" width="87" height="80">
+								</div>
+								<a href="[vod:playlink]" title="[vod:name]">
+								<img class="img-responsive" src="[vod:pic]" alt="{$feifei.vod_name}" width="213" height="143"></a>
+								<div class="v-title">
+									<a href="[vod:playlink]" title="[vod:name]" target="_blank">[vod:name]</a>
+								</div>
+							</div>
+                         {/maccms:vod}
+						</div>
+						<div class="row text-center">
+							<div class="col-lg-12">
+								<div class="news-feed-btn">
+									<ul>
+							{maccms:pages len=6}
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	              {maccms:foot}
+				</body>
+				</html>

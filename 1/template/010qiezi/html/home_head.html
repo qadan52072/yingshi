@@ -1,0 +1,44 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 navbar-header">
+			<a class="navbar-brand" href="">
+			<div class="logo" height="90">
+				<img class="img-responsive" src="{maccms:path_tpl}images/logo.png" width="240"/>
+			</div>
+			<div class="slogan">
+				最近網址：{maccms:url}
+			</div>
+			</a>
+			<hr>
+		</div>
+		<div class="col-md-9 top-nav">
+			<a href="/" class="btn btn-danger btn-lg this">首页</a>	
+		{maccms:menu type=23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48}
+		   <a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	    {/maccms:menu}
+		</div>
+	</div>
+	<div align="center">
+		<div class="ads">
+			<!--AD-->
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12 class-feed-btn2">
+			<ul>
+		{maccms:menu type=1,2,3,4,5,6,7,8,9}
+		   <a href="[menu:link]" target="_self"class="btn btn-danger btn-lg ">[menu:name]</a>   
+	    {/maccms:menu}
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-12">
+			<form action="{maccms:link_search_vod}" method="post" autocomplete="off">
+				<div class="input-group">
+					<input type="text" class="form-control" id="wd" name="wd" placeholder="万部影片任你搜索" value="">
+					<span class="input-group-btn"><button class="btn btn-default" type="submit">搜索</button></span>
+				</div>
+			</form>
+		</div>
+	</div>

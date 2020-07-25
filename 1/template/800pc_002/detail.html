@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>正在播放 <?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?>绍</title>
+	    <meta name="keywords" content="<?php echo $web_keywords;?>" />
+	    <meta name="description" content="<?php echo $web_description;?>" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE10">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/style.css" type="text/css">
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/jquery.js"></script>
+		<script type="text/javascript" src="<?php echo '/template/'.$web_moban;?>/js/home.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<?php  include('./template/'.$web_moban.'/header.html');?>
+				<div class="stui-pannel clearfix">
+					<div class="stui-player col-pd">
+						<div class="stui-player__video embed-responsive embed-responsive-16by9 clearfix">
+							<img class="lazyload" data-original="<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_pic');?>" style="">
+						</div>
+						<div class="stui-player__detail detail">
+							<h4 class="title"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></h4>
+							<p class="data margin-0">
+								<span class="text-muted hidden-xs">类型：</span>
+								<a href="" target="_blank"><?php JCCMS_type(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));?></a>
+								&nbsp;
+								<span class="split-line"></span>
+								<span class="text-muted hidden-xs">地区：</span>
+								未知
+								<span class="split-line"></span>
+								<span class="text-muted hidden-xs">年份：</span>
+								未知
+							</p>
+						</div>
+						<div class="stui-pannel clearfix">
+							<div class="stui-pannel__head clearfix">
+								<span class="more text-muted pull-right">无需安装任何插件</span>
+								<h3 class="title">播放</h3>
+							</div>
+							<ul class="stui-content__playlist clearfix">
+								<li class="active">
+									<a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html">在线播放</a>
+								</li>
+								<li class="">
+									<a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html">备用线路</a>
+								</li>
+							</ul>
+						</div>
+						<?php	Jccms_json_ad_video('<li style="list-style-type:none">
+								<a target="_blank"  href="链接">
+									<img style="width:100%;height:100px;margin-bottom:2px;" src="图片">
+								</a>
+							</li> ');?>	
+
+						<div class="stui-pannel clearfix">
+							<div class="stui-pannel__head clearfix">
+								<h3 class="title">同类推荐</h3>
+							</div>
+							<ul class="stui-vodlist clearfix">
+											<?php  
+					include('./lib/datatop.php');
+					 $pagesize = 12; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+								<li class="stui-vodlist__item">
+									<a class="stui-vodlist__thumb lazyload" href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" title="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" data-original="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>">
+										<span class="play hidden-xs"></span>
+										<span class="pic-text text-right">已完结</span>
+									</a>
+									<h4 class="stui-vodlist__title">
+										<a href="{9CCMS-Video-Popular:DUrl}" title="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+											<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?>
+										</a>
+									</h4>
+								</li>
+								<?php		 }							 ?>		
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php  include('./template/'.$web_moban.'/footer.html');?>
+		<script src="<?php echo '/template/'.$web_moban;?>/js/jquery.lazyload.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".lazyload").lazyload({
+				effect: "fadeIn",
+				threshold: 200,
+				failurelimit: 15,
+				skip_invisible: false
+			})
+		</script>
+	</body>
+</html>

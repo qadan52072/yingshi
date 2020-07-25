@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<?php  
+$pagesize = 15; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+ <?php  include('./template/'.$web_moban.'/header.html');?>
+        <div class="mdui-right-container">
+ <div class="mdui-p-t-2 mdui-right-container">
+            <!-- 位置导航开始 -->
+            <div class="mdui-typo mdui-m-b-1 position">
+                <div class="mdui-float-right"></div>
+                <i class="fa fa-home"></i> 您当前位置：<a href="/">首页</a> <i class="fa fa-angle-right"></i> <a
+                    href="{9CCMS:$ListUrl}" id="now_tab"><?php echo $C_T_2;?>搜索结果如下：</a>
+                <hr>
+            </div>
+            <!-- 位置导航结束 -->
+            <!-- 已筛选标签开始 -->
+            <div class="mdui-m-b-2 select-tips">
+                <ul class="mdui-typo select-tips-list" id="tags_right_ul"></ul>
+            </div>
+            <!-- 已筛选标签结束 -->
+
+
+            <!-- 视频列表开始 -->
+            <div class="mdui-row-xs-3 mdui-grid-list list-videos">
+<?php
+	if( $JCCMS_SQL ==null){
+		echo"没有查询到你要查找的数据";
+	}else{
+	for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){
+
+?>
+                                <div class="mdui-col">
+                    <div class="mdui-grid-tile list-video-thumb">
+                        <a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank" title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>">
+                            <img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>"/>
+                        </a></div>
+                    <h3 class="mdui-list-item-two-line f14 text-normal video-title">
+                        <a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a></h3>
+                    <div class="mdui-typo-caption-opacity f12 video-details">
+                        <span class="att-info-play"><i class="fa fa-play-circle-o"></i><?php  echo rand(5, 10000); ?></span>
+                        <span class="att-info-thumbsup"><i class="fa fa-hand-o-right"></i><?php  echo rand(5, 10000); ?></span>
+                    </div>
+                </div>
+<?php	
+			 }
+			 }
+		 
+	?>		
+                                            </div>
+          <div class="paginator" >
+            <ul class="paginator-ul">
+              
+			  	<?php
+ 
+if($JCCMS_page >=0){
+?>	  
+		  <li class="paginator-li"><a class="paginator-a" href="/?m=search-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_prev);?>.html" title="上一页"><i class="fa fa-arrow-left"></i></a></li>
+	<?php
+}
+?>	  
+		<?php
+if($JCCMS_page < $JCCMS_pagecount){
+?>  
+		  <li  class="paginator-li"><a class="paginator-a" href="/?m=search-type-<?php echo $JCCMS_type_id; ?>-<?php JCCMS_page($JCCMS_next);?>.html" class="prevnext" title="下一页"><i class="fa fa-arrow-right"></i></a></li>
+	<?php
+}
+
+
+
+?>	
+
+			  </ul></div>
+
+    <!-- 右边主区域结束 -->
+        </div>
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>

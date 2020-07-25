@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+	<title>正在播放 <?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></title>
+	<meta name="keywords" content="<?php echo $web_keywords;?>" />
+	<meta name="description" content="<?php echo $web_description;?>" />
+    <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/index.css" />
+</head>
+<body>
+<?php  include('./template/'.$web_moban.'/header.html');?>
+<div id="main">
+	<div class="position"><span>您的位置：视频介绍<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></span></div>
+	<div class="box980">
+	   <div class="show_video">
+			<dl>
+				 <dt><img src="<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_pic');?>" alt="<?php echo $web_title;?>" /></dt>
+				 <dd class="showtitle"><span>片名：</span><h1><?php echo $web_title;?></h1></dd>
+				 <dd><span>影片分类：</span><a><?php JCCMS_type(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));?></a></dd>
+				 <dd><span>更新时间：</span><a><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></a></dd>
+				<dd><span>点击：</span><a><?php  echo rand(5, 10000); ?></a></dd>
+				<dd><span>喜欢：</span><a><?php  echo rand(5, 10000); ?></a></dd>		 
+				<dd><span>网站公告：</span><a><?php echo $dizhigongao;?></a></dd>
+				<dd><span>发布地址一：</span><a><?php echo $dizhi1;?></a></dd>
+				<dd><span>发布地址二：</span><a><?php echo $dizhi2;?></a></dd>
+				<dd><span>注意：</span><a>无法播放请刷新等待5-8秒或更换其他影片</a></dd>
+			</dl>
+	   </div>
+	   <div id="vlink_1" class="playBar">
+		<div class="playBar_title">
+		 <span>在线观看</span>
+		</div>
+		<ul>
+		 <li><a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html">在线播放</a></li>
+		 <li><a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html">备用地址</a></li>
+		</ul>
+	   </div>
+		<div class="caoporn_Maincontentfive">
+			 <div class="caoporn_mcfive_title">
+			  <h2>推荐视频</h2>
+			 </div>
+			 <div class="caoporn_mcfive_Ct">
+			  <ul class="caoporn_video">
+				<?php 	include('./lib/datatop.php');$pagesize = 10; $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;$JCCMS_prev = $JCCMS_pages -1;$JCCMS_next = $JCCMS_pages +1;
+				$JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+					<li><a href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"><h3><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></h3><img alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" /><img class="hd" src="<?php echo '/template/'.$web_moban;?>/images/hd.png" alt="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" /><p><b><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_time');?></b></p><span></span></a></li>
+				<?php } ?>		   
+			  </ul>
+			 </div>			 
+		 </div>
+  </div>
+	
+	
+	
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+ 
+</body>
+</html>

@@ -1,0 +1,143 @@
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 days" />
+		<title>正在播放 <?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></title>
+		<meta name="keywords" content="<?php echo $web_keywords;?>" />
+		<meta name="description" content="<?php echo $web_description;?>" />
+        <script src="<?php echo '/template/'.$web_moban;?>/js/jquery.min.js"></script>
+        <script src="<?php echo '/template/'.$web_moban;?>/js/uikit.min.js"></script>
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/normalize.css">
+        <link rel="stylesheet" type="text/css" href="<?php echo '/template/'.$web_moban;?>/css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="<?php echo '/template/'.$web_moban;?>/fonts/iconfont.css" />
+		<link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/uikit.css"> 		
+        <link rel="stylesheet" href="<?php echo '/template/'.$web_moban;?>/css/m.style.css">
+      	<style>
+          .propa_left1,.propa_right1{display:none}	
+        </style>
+    </head>
+    <body>
+        <!-- 头部 开始-->
+        <header class="head uk-clearfix">
+            <a href="/" class="logo  uk-float-left"><img src="<?php echo $web_logo;?>" alt="<?php echo $web_title;?>"></a>
+            <p class="uk-margin-remove uk-flex-item-1"></p>
+            <button class="uk-button uk-display-block uk-float-right btn-menu icon iconfont icon-caidan " data-uk-offcanvas="{target:'#my-id'}"></button>
+            
+<?php  include('./template/'.$web_moban.'/header.html');?>	
+        </header>
+        <!--头部 结束 -->
+<div class="v-read">
+			 <center>
+				<?php	Jccms_json_ad_top('<a href="链接" target="_blank" ><img style="width:980px;height:70px;margin-bottom:2px;" src="图片"></a>');?>	
+			</center> 
+</div>	
+
+
+
+
+
+
+
+
+
+
+
+		<div class="v-read">
+            <!-- 标题 -->
+            <div class="v-type-title uk-clearfix">
+                <p class="bead ">
+                    <span class="icon iconfont icon-home"></span>
+                    位置：
+                    <a href="#" class=""><?php echo $web_title;?></a>
+                    <span class="icon iconfont icon-right"></span>
+                    <a href="#"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></a>
+                </p>
+            </div>
+            
+            <!-- 影片介绍 -->
+            <div class="read-info">
+                <div class="read-img">
+                    <img src="<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_pic');?>" alt="">
+                </div>
+                <!-- 视频标题 -->
+                <h3 class="read-title uk-margin-top uk-margin-small-bottom"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></h3>
+                <div class="read-text uk-margin-top-remove uk-clearfix">
+                    <p class="uk-float-left">影片分类:<span><?php JCCMS_type(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));?></span></p>
+                    <p class="uk-float-left">更新时间:<span><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></span></p>
+                </div>
+                
+                <div class="read-btn uk-margin-top uk-margin-bottom uk-clearfix">
+                    <a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html" class="uk-float-left">手机播放</a>
+                    <a href="/?m=vod-neiron-id-<?php echo $shipinid;?>.html" class="uk-float-right">电脑播放</a>
+                </div>
+            </div>
+
+            
+        </div>
+		
+        <!-- 推荐视频 -->
+        <div class="v-type-favorite uk-clearfix">
+            <!-- 相关视频 标题 -->
+            <div class="v-type-title uk-clearfix uk-margin-top uk-margin-small-bottom">
+                <h3 class="uk-float-left">推荐视频</h3>
+            </div>
+            <!-- 视频缩略图 -->
+            <ul class="recom recom-play">
+					<?php  
+					include('./lib/datatop.php');
+					 $pagesize = 10; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>			
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+						<li>
+							<a href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" class="uk-display-block ">
+								<div class="re-pic uk-float-left">
+									<img src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>" alt="">
+								</div>
+								<div class="re-info">
+									<div class="re-h uk-margin-top-remove"><?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?></div>
+									<div class="re-detail">
+										<span>
+											<i class="icon iconfont icon-play"></i>
+											<?php  echo rand(5, 10000); ?>
+										</span>
+										<span>
+											<i class="icon iconfont icon-weibiaoti--"></i>
+											<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_time');?>
+										</span>
+										<span>
+											<i class="icon iconfont icon-zan"></i>
+											<?php  echo rand(5, 10000); ?>
+										</span>
+									</div>
+								</div>
+							</a>
+						</li>
+					<?php		 }							 ?>					
+			
+			
+
+
+            </ul>
+
+
+
+            
+        </div>
+        <!-- 热门结束 -->		
+		
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
+    </body>
+</html>
+
+

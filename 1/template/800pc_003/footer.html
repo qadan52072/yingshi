@@ -1,0 +1,23 @@
+<section>
+    <div class="v-footer">
+    <div class="footer-title">
+        <div class="footer-desc">本服务针对海外华人提供，如果您未满18岁，请立即离开！</div>
+        <div class="qrcode">
+            <div id="footer_qrcode" title="<?php echo '/template/'.$web_moban;?>">
+                <canvas width="89" height="89" style="display: none;"></canvas>
+                <img alt="Scan me!" src="<?php echo '/template/'.$web_moban;?>/images/logo-s.png" class="lazy" data-original="<?php echo '/template/'.$web_moban;?>/images/qrcode.png" alt="二维码" style="display: block;"></div>
+            
+        </div>
+        <div class="qr-text"></div>
+    </div>
+    <div class="copy-right">联系方式：<?php echo $web_email;?> Copyright© 2020 </div></div>
+</section>
+<script src="<?php echo '/template/'.$web_moban;?>/js/jquery.lazyload.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $("img.lazy").lazyload({
+            threshold : 10,
+            effect : "fadeIn"
+        });
+    })
+</script>

@@ -1,0 +1,84 @@
+  <?php  
+$pagesize = 6; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+ <?php  include('./template/'.$web_moban.'/header.html');?>
+
+        <div class="mdui-right-container">
+            <!-- 视频列表开始 -->
+            <div class="mdui-row-xs-3 mdui-grid-list list-videos">
+                <div class="mdui-typo"><div class="mdui-float-right">视频防屏蔽网址：<a href="<?php echo $dizhi1;?>" target="_blank"><?php echo $dizhi1;?></a></div><h3 class="mdui-text-color-theme"><?php JCCMS_type('5'); ?></h3></div>
+                <?php $JCCMS_SQL=JCCMS_chuli('5');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+    <div class="mdui-col">
+<div class="mdui-grid-tile list-video-thumb">
+<a  href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"  title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" >
+<img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>"/>
+</a></div>
+<h3 class="mdui-list-item-two-line f14 text-normal video-title">
+<a  href="{9CCMS-Index:DUrl}" target="_blank" ><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a></h3>
+<div class="mdui-typo-caption-opacity f12 video-details">
+<span class="att-info-play"><i class="fa fa-play-circle-o"></i><?php  echo rand(5, 10000); ?></span>
+<span class="att-info-thumbsup"><i class="fa fa-hand-o-right"></i><?php  echo rand(5, 10000); ?></span>
+</div></div>
+	<?php		 }?>	
+
+                                                    </div>
+
+            <div class="mdui-row-xs-3 mdui-grid-list list-videos">
+                <div class="mdui-typo"><a href=""
+                                          class="mdui-btn mdui-color-theme-accent mdui-float-right mdui-ripple">更多 <i
+                        class="fa fa-ellipsis-h"></i> </a>
+                    <h3 class="mdui-text-color-theme"><?php JCCMS_type('8'); ?></h3></div>
+<?php $JCCMS_SQL=JCCMS_chuli('8');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+    <div class="mdui-col">
+<div class="mdui-grid-tile list-video-thumb">
+<a  href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"  title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" >
+<img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>"/>
+</a></div>
+<h3 class="mdui-list-item-two-line f14 text-normal video-title">
+<a  href="{9CCMS-Index:DUrl}" target="_blank" ><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a></h3>
+<div class="mdui-typo-caption-opacity f12 video-details">
+<span class="att-info-play"><i class="fa fa-play-circle-o"></i><?php  echo rand(5, 10000); ?></span>
+<span class="att-info-thumbsup"><i class="fa fa-hand-o-right"></i><?php  echo rand(5, 10000); ?></span>
+</div></div>
+	<?php		 }							 ?>		
+
+                                                </div>
+
+            <div class="mdui-row-xs-3 mdui-grid-list list-videos">
+                <div class="mdui-typo"><a href=""
+                                          class="mdui-btn mdui-color-theme-accent mdui-float-right mdui-ripple">更多 <i
+                        class="fa fa-ellipsis-h"></i> </a>
+                    <h3 class="mdui-text-color-theme"><?php JCCMS_type('7'); ?></h3></div>
+<?php $JCCMS_SQL=JCCMS_chuli('7');for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+    <div class="mdui-col">
+<div class="mdui-grid-tile list-video-thumb">
+<a  href="/?m=vod-detail-id-<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"  title="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" >
+<img src="<?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>"/>
+</a></div>
+<h3 class="mdui-list-item-two-line f14 text-normal video-title">
+<a  href="{9CCMS-Index:DUrl}" target="_blank" ><?php JCCMS_SQL($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a></h3>
+<div class="mdui-typo-caption-opacity f12 video-details">
+<span class="att-info-play"><i class="fa fa-play-circle-o"></i><?php  echo rand(5, 10000); ?></span>
+<span class="att-info-thumbsup"><i class="fa fa-hand-o-right"></i><?php  echo rand(5, 10000); ?></span>
+</div></div>
+	<?php		 }							 ?>		
+
+                                                </div>
+
+        <!-- 友情链接开始 -->
+<div class="mdui-typo">
+    <hr>
+</div>
+<div class="mdui-m-y-2 links">
+    <h3 class="mdui-text-color-theme mdui-m-l-1 mdui-m-b-1">友情链接</h3>
+    <ul class="mdui-typo links-list">
+	<?php echo  Jccms_json_connection('<li class="uk-float-left uk-margin-right"><a href="链接" target="_blank" class="uk-float-left">标题</a></li>',JCCMS_ROOT);?>
+
+                    </ul>
+</div>
+<!-- 友情链接结束 -->
+ 
+<?php  include('./template/'.$web_moban.'/footer.html');?>

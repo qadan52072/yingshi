@@ -1,0 +1,161 @@
+ <?php  
+$pagesize = 9; //设置记录显示条数; 
+ $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+  $JCCMS_prev = $JCCMS_page -1; //初始化上一页
+ $JCCMS_next = $JCCMS_page +1; //初始化下一页
+?>
+ <?php  include('./template/'.$web_moban.'/header.html');?>
+        <div class="mdui-p-t-2 mdui-right-container">
+            <!-- 位置导航开始 -->
+            <div class="mdui-typo mdui-m-b-1 position">
+                <div class="mdui-float-right"></div>        <i class="fa fa-home"></i><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?>
+                <hr>
+            </div>
+            <!-- 位置导航结束 -->
+
+            <!-- 播放区域开始 -->
+            <div class="player-area">
+                <h3 class="mdui-typo mdui-m-y-2 text-normal"></h3>
+                <!-- 播放区域右侧开始 -->
+                <div class="mdui-float-right player-right-ad player-right-list">
+                    <div class="mdui-row-xs-1 mdui-grid-list list-videos">
+                        <h3 class="mdui-m-b-1 mdui-p-l-1 mdui-text-color-theme-accent"></h3>
+                                                                            <div class="mdui-col">
+                                <div class="mdui-grid-tile list-video-thumb">
+                                    <a href="#">
+                                        <img style="height:117px;margin-bottom:2px" src="<?php echo '/template/'.$web_moban;?>/images/1.jpg"/>
+                                        <!--<i class="icon-vip"></i>-->
+                                    </a>
+                                </div>
+
+                            </div>
+                                                                            <div class="mdui-col">
+                                <div class="mdui-grid-tile list-video-thumb">
+                                    <a href="#">
+                                        <img style="height:117px;margin-bottom:2px" src="<?php echo '/template/'.$web_moban;?>/images/2.jpg"/>
+                                        <!--<i class="icon-vip"></i>-->
+                                    </a>
+                                </div>
+
+                            </div>
+                                                                            <div class="mdui-col">
+                                <div class="mdui-grid-tile list-video-thumb">
+                                    <a href="#">
+                                        <img  style="height:117px;margin-bottom:2px" src="<?php echo '/template/'.$web_moban;?>/images/3.jpg"/>
+                                        <!--<i class="icon-vip"></i>-->
+                                    </a>
+                                </div>
+
+                            </div>
+                                                                                                </div>
+                </div>
+                <div class="mdui-float-left playerbox">
+                    <!-- 播放器开始 -->
+                    <div class="player" style="height:420px; background-size: cover;">
+
+                        <div id="player_div">
+
+                            <div id="video" style="width: 720px; height: 420px;">
+                            	<video id='myVideo'  class="video-js"></video>
+											<link rel="stylesheet" type="text/css" href="/static/VideoJS/video.min.css?v=3">
+											<script type="text/javascript" src="/static/VideoJS/video.min.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/video-conrtib-ads.js?v=1" charset="utf-8" > </script>
+												<script type="text/javascript" src="/static/VideoJS/myVideo.js?v=6" charset="utf-8" > </script>
+												<script type="text/javascript">
+												var vPath = '<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_playurl');?>';
+												var logo = '';
+												var myVideo=initVideo({
+                                                    id:'myVideo',
+                                                    url:vPath,
+													ad:{
+                                                      pre:{
+                                                          url:'',
+                                                          link:'',
+                                                      },
+												  	},
+                                                  	logo:{
+                                                        url:'',
+                                                        width:'100px'
+                                                    },
+												});
+												</script>	
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="play_loading" style="display:none">
+
+                    </div>
+                    <!-- 播放器结束 -->
+                    <div class="mdui-m-y-1 attributes-show">
+
+
+                         <a href="#"><button class="mdui-btn mdui-color-theme-accent"><i class="fa fa-sliders"></i> <span id="now_line">ID:<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_id');?></span></button></a>
+                         <a href="#"><button class="mdui-btn mdui-color-theme-accent"><i class="fa fa-sliders"></i> <span id="now_line">分类ID:<?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_type');?></span></button></a>
+                         <a href="#"><button class="mdui-btn mdui-color-theme-accent"><i class="fa fa-sliders"></i> <span id="now_line">无法播放请刷新等待5-8秒或更换其他影片</span></button></a>
+
+                        <span class="mdui-typo-caption-opacity mdui-m-x-1 text-letter-spacing-normal" mdui-tooltip="{content: '播放次数'}"><i class="fa fa-play-circle-o"></i><span><?php  echo rand(5, 10000); ?></span>
+                        &nbsp;  &nbsp; &nbsp;<span class="mdui-typo-caption-opacity text-letter-spacing-normal" mdui-tooltip="{content: '发布时间'}"><i class="fa fa-calendar-o"></i><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_time');?></span>
+
+                    </div>
+
+                    <div class="mdui-m-b-1 tuiguang attributes-show-tab-share" id="attributes-show-tab-share">
+                        <p class="mdui-m-b-1"><?php JCCMS_SQL($JCCMS_SQL,'0','JCCMS_SQL_name');?></p>
+                    </div>
+
+                    <!-- 推广链接开始 -->
+                    <div class="mdui-m-b-1 tuiguang attributes-show-tab-share" id="attributes-show-tab-share">
+					
+                        <p class="mdui-m-b-1">
+						<?php	Jccms_json_ad_video('<div class="mdui-col-xs-12"><a href="链接" target="_blank"><img class="mdui-img-fluid" style="width:960px;height:100px;margin-bottom:2px" src="图片"></a></div>');?>	</p>
+                    </div>
+                    <!-- 推广链接结束 -->
+
+                    <!-- 视频标签开始 -->
+                    <!-- 视频标签结束 -->
+
+
+                </div>
+
+
+                <!-- 播放页中间广告开始 -->
+                <div class="mdui-row-xs-1 mdui-m-y-1 show-middle-banner">
+
+                </div>
+                <!-- 播放页中间广告结束 -->
+
+            </div>
+        </div>
+        <!-- 播放区域结束 -->
+        <div class="mdui-typo"><hr></div>
+
+        <!-- 视频列表开始 -->
+        <div  id="related_ul" class="mdui-row-xs-4 mdui-grid-list list-videos list-videos-col4">
+            <h3 class="mdui-m-b-1 mdui-p-l-1 mdui-text-color-theme-accent">相关视频</h3>
+					<?php  
+					include('./lib/datatop.php');
+					 $pagesize = 8; //设置记录显示条数; 
+					 $JCCMS_pagecount = floor(count($JCCMS_SQL) / $pagesize)-1;//计算数组所得到记录总数
+					  $JCCMS_prev = $JCCMS_pages -1; //初始化上一页
+					 $JCCMS_next = $JCCMS_pages +1; //初始化下一页
+
+					
+					
+					?>
+					<?php   $JCCMS_SQL=JCCMS_chulis(JCCMS_SQLL($JCCMS_SQL,'0','JCCMS_SQL_type'));for($x=$JCCMS_page * $pagesize;$x<$JCCMS_page * $pagesize + $pagesize;$x++){ ?>
+                            <div class="mdui-col">
+                    <div class="mdui-grid-tile list-video-thumb">
+                        <a  href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank"  title="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?>" >
+                            <img src="<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_pic');?>"/>
+                        </a></div>
+                    <h3 class="mdui-list-item-two-line f14 text-normal video-title">
+                        <a  href="/?m=vod-detail-id-<?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_id');?>.html" target="_blank" ><?php JCCMS_SQLs($JCCMS_SQL,$x,'JCCMS_SQL_name');?></a></h3>
+                    <div class="mdui-typo-caption-opacity f12 video-details">
+                        <span class="att-info-play"><i class="fa fa-play-circle-o"></i><?php  echo rand(5, 10000); ?></span>
+                        <span class="att-info-thumbsup"><i class="fa fa-hand-o-right"></i><?php  echo rand(5, 10000); ?></span>
+                    </div>
+                </div>
+              <?php		 }							 ?>	 </div>
+        <!-- 视频列表结束 -->
+
+<?php  include('./template/'.$web_moban.'/footer.html');?>
